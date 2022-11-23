@@ -1,1 +1,1 @@
-GET bici-backend-production.up.railway.app/Users
+GET http://localhost:8080/Users

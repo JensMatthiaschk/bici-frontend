@@ -7,14 +7,17 @@ import LandingPage from './routes/LandingPage.jsx'
 import Layout from './routes/Layout.jsx'
 import Login from './routes/Login.jsx'
 import Profile from './routes/Profile.jsx'
-import Register from './routes/Register.jsx'
+import Register, { action as newUserAction } from './routes/Register.jsx'
+import MapFullPage from './routes/MapFullPage'
+import ErrorPage from './routes/ErrorPage'
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Layout />}>
+  <Route path="/" element={<Layout />} >
     <Route index element={<LandingPage />} />
-    <Route path="/register" element={<Register />} />
+    <Route path="/register" element={<Register />} errorElement={<ErrorPage />} action={newUserAction} />
     <Route path="/login" element={<Login />} />
     <Route path="/profile" element={<Profile />} />
+    <Route path="/mapview" element={<MapFullPage />}></Route>
   </Route>
 
 ))
