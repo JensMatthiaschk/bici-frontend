@@ -1,24 +1,56 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-//import App from './App'
+import App from './routes/App'
 import './index.css'
-import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
-import LandingPage from './routes/LandingPage.jsx'
-import Layout from './routes/Layout.jsx'
-import Login from './routes/Login.jsx'
-import Profile from './routes/Profile.jsx'
-import Register from './routes/Register.jsx'
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Errorpage from './routes/Errorpage.jsx'
+import Landing from './routes/Landing.jsx'
+import Register, { action as registerAction } from './routes/Register'
+//import Layout from './routes/Layout.jsx'
+import Login, { action as loginAction } from './routes/Login.jsx'
 
-const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Layout />}>
-    <Route index element={<LandingPage />} />
-    <Route path="/register" element={<Register />} />
-    <Route path="/login" element={<Login />} />
-    <Route path="/profile" element={<Profile />} />
-  </Route>
+import Profile from './routes/Profile'
 
-))
+
+
+const router = createBrowserRouter([
+
+  {
+    path: "/a",
+    element: <App />
+  },
+  {
+    path: "register",
+    element: <Register />,
+    action: registerAction
+  },
+
+
+  {
+    path: "profile/",
+    element: <Profile />,
+
+  },
+
+  {
+    path: "/",
+    element: <Landing />,
+    errorElement: <Errorpage />,
+    children: [
+
+      {
+        path: "login",
+        element: <Login />,
+        action: loginAction
+
+
+      }
+    ]
+  }
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+
+
   <RouterProvider router={router} />
 )
