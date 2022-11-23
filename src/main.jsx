@@ -5,9 +5,10 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Errorpage from './routes/Errorpage.jsx'
 import Landing from './routes/Landing.jsx'
-import Register from './routes/Register'
+import Register, { action as registerAction } from './routes/Register'
 //import Layout from './routes/Layout.jsx'
 import Login, { action as loginAction } from './routes/Login.jsx'
+
 import Profile from './routes/Profile'
 
 
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
   {
     path: "register",
     element: <Register />,
+    action: registerAction
+  },
+
+
+  {
+    path: "profile/",
+    element: <Profile />,
+
   },
 
   {
@@ -35,12 +44,6 @@ const router = createBrowserRouter([
         action: loginAction
 
 
-      },
-
-      {
-        path: "profile/",
-        element: <Profile />,
-        // loader: profileLoader
       }
     ]
   }
