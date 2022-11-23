@@ -1,21 +1,21 @@
+import { useEffect } from "react";
 import { useRef } from "react";
 import {
-
     Form,
     json,
     redirect,
     useActionData,
     useNavigate,
 } from "react-router-dom";
-import { register } from "../authservice";
+import { register } from "../utils.jsx";
 
 export async function action({ request }) {
     try {
         const formData = Object.fromEntries(await request.formData());
-        console.log(formData)
         const response = await register(formData);
 
         if (!response.ok) {
+            console.log(response)
             return json({ error: "Email already exists." });
         }
         return redirect("/login");
@@ -27,7 +27,6 @@ export async function action({ request }) {
 
 export default function Register() {
     const actionData = useActionData()
-    const passwordConfirmationRef = useRef();
     return (
         <div className="RegisterForm">
             <Form method="post" action="/register">
@@ -45,6 +44,7 @@ export default function Register() {
                     />
                     <label htmlFor="email">email</label>
                     <input className="input input-bordered w-full max-w-xs"
+
                         type="email"
                         name="email"
                         autoComplete="email"
@@ -57,6 +57,7 @@ export default function Register() {
                     ) : null}
                     <label htmlFor="password">password</label>
                     <input className="input input-bordered w-full max-w-xs"
+
                         type="password"
                         name="password"
                         autoComplete="current-password"

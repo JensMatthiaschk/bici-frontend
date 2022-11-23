@@ -8,7 +8,6 @@ import Landing from './routes/Landing.jsx'
 import Register, { action as registerAction } from './routes/Register'
 //import Layout from './routes/Layout.jsx'
 import Login, { action as loginAction } from './routes/Login.jsx'
-
 import Profile from './routes/Profile'
 
 
