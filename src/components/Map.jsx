@@ -1,5 +1,6 @@
 import React from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { useState, useEffect } from 'react'
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 
 function Map() {
@@ -15,6 +16,24 @@ function Map() {
     }
   ]
 
+  function LocationMarker() {
+    const [position, setPosition] = useState(null);
+
+    const map = useMap();
+
+    useEffect(() => {
+      map.locate().on("locationfound", function (e) {
+        setPosition(e.latlng);
+        map.flyTo(e.latlng, map.getZoom());
+      });
+    }, []);
+
+    return position === null ? null : (
+      <Marker position={ position }>
+        <Popup>You are here</Popup>
+      </Marker>
+      );
+    }
 
   return (
     <div className="Map">
@@ -30,6 +49,7 @@ function Map() {
           </Popup>
       </Marker>
       )}
+      <LocationMarker/>
       </MapContainer>
 
     </div>
