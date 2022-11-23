@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useRef } from "react";
 import {
     Form,
     json,
@@ -33,7 +34,7 @@ export default function Register() {
                     style={{ display: "flex", flexDirection: "column", rowGap: 10 }}
                 >
                     <label htmlFor="name">name</label>
-                    <input
+                    <input className="input input-bordered w-full max-w-xs"
                         type="text"
                         name="name"
                         autoComplete="name"
@@ -42,7 +43,8 @@ export default function Register() {
                     //defaultValue="asd"
                     />
                     <label htmlFor="email">email</label>
-                    <input
+                    <input className="input input-bordered w-full max-w-xs"
+
                         type="email"
                         name="email"
                         autoComplete="email"
@@ -54,15 +56,21 @@ export default function Register() {
                         <p style={{ color: "red" }}>{actionData.error}</p>
                     ) : null}
                     <label htmlFor="password">password</label>
-                    <input
+                    <input className="input input-bordered w-full max-w-xs"
+
                         type="password"
                         name="password"
                         autoComplete="current-password"
                         id="password"
                         required
                         //defaultValue="asd"
-                        minLength={8}
-                        onInvalid={() => "Please enter minium 8 chracters"}
+                        minLength={5}
+                        onInvalid={() => "Please enter minium 5 chracters"}
+                    />
+                    <input className="input input-bordered w-full max-w-xs"
+                        ref={passwordConfirmationRef}
+                        type="password"
+                        placeholder="Confirm Password"
                     />
                     <button type="submit" style={{ backgroundColor: "lightblue" }}>
                         Register

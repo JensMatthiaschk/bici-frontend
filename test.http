@@ -1,1 +1,7 @@
+###
 GET http://localhost:8080/Users
+###
+GET https://bici-backend-production.up.railway.app/Users
+###
+GET bici-backend-production.up.railway.app/Users
+
