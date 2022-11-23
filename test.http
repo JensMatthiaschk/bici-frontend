@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 GET https://bici-backend-production.up.railway.app/Users
+=======
+GET bici-backend-production.up.railway.app/Users
+>>>>>>> 4e0cd3645761b59be458e59cf932490c97cd86a3

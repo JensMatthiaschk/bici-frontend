@@ -1,9 +1,10 @@
-import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Map from '../components/Map.jsx'
-function App() {
 
 
+import React from 'react'
+
+const App = () => {
   return (
     <div className="App">
       <Navbar />
