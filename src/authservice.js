@@ -63,29 +63,29 @@ export const verifier = async () => {
 export const register = async (data) => {
 
 
-    if (data.password === passwordConfirmationRef.current.value) {
-        fetch(import.meta.env.VITE_AUTH_API + "/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(object),
-            mode: "cors"
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.success) {
 
-                    localStorage.setItem("user-jwt", JSON.stringify(data.jwt));
-                    redirect(`/profile`);
-                } else {
-                    console.log(data)
-                    alert(data.message);
-                }
-            });
-    } else {
-        alert("Passwords do not match!");
-    }
+    fetch(import.meta.env.VITE_AUTH_API + "/signup", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+        mode: "cors"
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+
+                localStorage.setItem("user-jwt", JSON.stringify(data.jwt));
+                console.log(data.message)
+
+            } else {
+                console.log(data)
+                alert(data.message);
+            }
+        });
+
+
 };
 
 
