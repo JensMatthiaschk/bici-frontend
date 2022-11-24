@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+import myIcon from './Icons.jsx'
+//import mapSearch from './MapSearch'
 
 function Map() {
 
@@ -30,12 +32,21 @@ function Map() {
       });
     }, []);
 
+
+/* const myIcon = L.icon({
+      iconUrl: 'src/assets/icons8-bike-front-view-64.png',
+      iconSize: [64,64],
+      iconAnchor: [42, 64],
+      popupAnchor: [-10,-50]
+    }) */
+
     return position === null ? null : (
-      <Marker position={ position }>
+      <Marker position={ position } icon={ myIcon }>
         <Popup>You are here</Popup>
       </Marker>
       );
     }
+    
 
   return (
 <div className="Map"> 

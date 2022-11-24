@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Map from './components/Map.jsx'
+import Map from './components/map/Map.jsx'
 function App() {
 
   return (
