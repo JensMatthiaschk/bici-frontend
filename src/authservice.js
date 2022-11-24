@@ -88,4 +88,3 @@ export const register = async (data) => {
 
 };
 
-
