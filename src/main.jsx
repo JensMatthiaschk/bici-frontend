@@ -20,14 +20,14 @@ const router = createBrowserRouter([
     element: <App />
   },
   {
-    path: "register",
+    path: "/register",
     element: <Register />,
     action: registerAction
   },
 
 
   {
-    path: "profile/",
+    path: "/profile",
     element: <Profile />,
 
   },
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
     children: [
 
       {
-        path: "login",
+        path: "/login",
         element: <Login />,
         action: loginAction
 
