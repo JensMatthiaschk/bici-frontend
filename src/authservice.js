@@ -31,7 +31,7 @@ export const login = async (data) => {
     });
     const responseData = await res.json();
     console.log(responseData.message)
-    if (!responseData.success) return alert("Wrong Password")
+    if (!responseData.success) return alert(responseData.message)
     setToken(responseData.jwt)
 
 }
