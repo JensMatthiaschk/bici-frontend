@@ -1,24 +1,19 @@
-import { useEffect } from "react";
 import { useRef } from "react";
 import {
+
     Form,
     json,
     redirect,
     useActionData,
     useNavigate,
 } from "react-router-dom";
-import { register } from "../utils.jsx";
-
+import { register } from "../authservice";
 export async function action({ request }) {
     try {
         const formData = Object.fromEntries(await request.formData());
-        const response = await register(formData);
+        await register(formData);
 
-        if (!response.ok) {
-            console.log(response)
-            return json({ error: "Email already exists." });
-        }
-        return redirect("/login");
+        return redirect("/profile");
     } catch (error) {
         console.error(error);
     }
@@ -44,7 +39,6 @@ export default function Register() {
                     />
                     <label htmlFor="email">email</label>
                     <input className="input input-bordered w-full max-w-xs"
-
                         type="email"
                         name="email"
                         autoComplete="email"
@@ -57,7 +51,6 @@ export default function Register() {
                     ) : null}
                     <label htmlFor="password">password</label>
                     <input className="input input-bordered w-full max-w-xs"
-
                         type="password"
                         name="password"
                         autoComplete="current-password"
@@ -67,11 +60,11 @@ export default function Register() {
                         minLength={5}
                         onInvalid={() => "Please enter minium 5 chracters"}
                     />
-                    <input className="input input-bordered w-full max-w-xs"
+                    {/* <input className="input input-bordered w-full max-w-xs"
                         ref={passwordConfirmationRef}
                         type="password"
                         placeholder="Confirm Password"
-                    />
+                    /> */}
                     <button type="submit" style={{ backgroundColor: "lightblue" }}>
                         Register
                     </button>
