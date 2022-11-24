@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { verifier } from '../authservice'
 import Navbar from '../components/Navbar'
+import ProfileForm from './ProfileForm'
 
 
 export const Profile = () => {
@@ -21,8 +22,13 @@ export const Profile = () => {
         <Navbar />
 
         <div>Profile</div>
-
-
+        <div>
+            <label htmlFor="my-modal-3"
+                className=" bg-slate-300 text-center text-sky-700 p-2 rounded-full hover:bg-sky-700 hover:text-white cursor-pointer">
+                Edit Profile
+            </label>
+            <ProfileForm />
+        </div>
     </>
     )
 }
