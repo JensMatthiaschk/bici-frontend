@@ -10,7 +10,17 @@ export const setToken = (newValue) => {
 };
 
 
+export const clearToken = () => {
+    try {
+        window.localStorage.removeItem("user-jwt")
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
 export const login = async (data) => {
+    clearToken()
     const res = await fetch(import.meta.env.VITE_AUTH_API + "/login1", {
         method: "POST",
         headers: {
@@ -19,15 +29,16 @@ export const login = async (data) => {
         body: JSON.stringify(data),
         mode: "cors",
     });
-    const token = await res.json();
-    console.log(token)
-    setToken(token.jwt)
+    const responseData = await res.json();
+    console.log(responseData.message)
+    if (!responseData.success) return alert(responseData.message)
+    setToken(responseData.jwt)
 
 }
 
 export const verifier = async () => {
 
-    const token = JSON.parse(window.localStorage.getItem("user-jwt"));
+    const token = JSON.parse(localStorage.getItem("user-jwt"));
     try {
         const res = await fetch(import.meta.env.VITE_AUTH_API + "/me", {
             method: "post",
@@ -37,7 +48,8 @@ export const verifier = async () => {
             mode: "cors",
         });
         const data = await res.json()
-        console.log('>>>>>>>>', res.ok)
+        console.log('>>>>>>>>', data)
+
         return data.success;
     } catch (err) {
 
