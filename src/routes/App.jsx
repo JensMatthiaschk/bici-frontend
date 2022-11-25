@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar'
-import Map from '../components/map/Map.jsx'
+import Map from '../components//map/Map.jsx'
 
 
 import React from 'react'

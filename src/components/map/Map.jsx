@@ -1,10 +1,10 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import myIcon from './Icons.jsx'
+import LocationMarkers from './LocationMarkers.jsx'
+import MyLocationMarker from './MyLocationMarker.jsx'
 
-//import mapSearch from './MapSearch'
+
 
 function Map() {
 
@@ -20,29 +20,6 @@ function Map() {
       name: "Tempelhof"
     }
   ]
-
-  function LocationMarker() {
-    const [position, setPosition] = useState(null);
-
-    const map = useMap();
-
-    useEffect(() => {
-      map.locate().on("locationfound", function (e) {
-        setPosition(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
-      });
-    }, []);
-
-
-
-
-    return position === null ? null : (
-      <Marker position={position} icon={myIcon}>
-        <Popup>You are here</Popup>
-      </Marker>
-    );
-  }
-
 
   return (
     <div className="Map">
@@ -67,20 +44,23 @@ function Map() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+              
+              
+            </Popup>
+        </Marker>
+        )}
+        <MyLocationMarker/>
+        <LocationMarkers />
+        </MapContainer>
+      </div> 
+      <div className="drawer-side">
+        <label htmlFor="my-drawer" className="drawer-overlay"></label>
+        <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+           
+        </ul>
 
-
-                </Popup>
-              </Marker>
-            )}
-            <LocationMarker />
-          </MapContainer>
-        </div>
-        <div className="drawer-side">
-          <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-
-          </ul>
-        </div>
       </div>
     </div>
   )
