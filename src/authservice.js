@@ -64,7 +64,7 @@ export const register = async (data) => {
 
 
 
-    fetch(import.meta.env.VITE_AUTH_API + "/signup", {
+    return fetch(import.meta.env.VITE_AUTH_API + "/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -87,5 +87,4 @@ export const register = async (data) => {
 
 
 };
-
 
