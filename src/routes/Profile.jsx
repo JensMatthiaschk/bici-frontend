@@ -11,7 +11,7 @@ export const Profile = () => {
 
     (async () => {
         const token = await verifier();
-        console.log('tok1', token)
+        // console.log('tok1', token)
         if (!token) return navigate("/login");
 
     })();
@@ -23,7 +23,7 @@ export const Profile = () => {
 
         <div>Profile</div>
         <div>
-            <label htmlFor="my-modal-3"
+            <label htmlFor="ProfileForm"
                 className=" bg-slate-300 text-center text-sky-700 p-2 rounded-full hover:bg-sky-700 hover:text-white cursor-pointer">
                 Edit Profile
             </label>

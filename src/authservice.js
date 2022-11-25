@@ -21,7 +21,7 @@ export const clearToken = () => {
 
 export const login = async (data) => {
     clearToken()
-    const res = await fetch(import.meta.env.VITE_AUTH_API + "/login1", {
+    const res = await fetch(import.meta.env.VITE_AUTH_API + "/users/login1", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -33,14 +33,13 @@ export const login = async (data) => {
     console.log(responseData.message)
     if (!responseData.success) return alert(responseData.message)
     setToken(responseData.jwt)
-
 }
 
 export const verifier = async () => {
 
     const token = JSON.parse(localStorage.getItem("user-jwt"));
     try {
-        const res = await fetch(import.meta.env.VITE_AUTH_API + "/me", {
+        const res = await fetch(import.meta.env.VITE_AUTH_API + "/users/me", {
             method: "post",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -48,7 +47,7 @@ export const verifier = async () => {
             mode: "cors",
         });
         const data = await res.json()
-        console.log('>>>>>>>>', data)
+        // console.log('>>>>>>>>', data)
 
         return data.success;
     } catch (err) {
@@ -57,14 +56,10 @@ export const verifier = async () => {
         console.error(err);
         return false;
     }
-
 };
 
 export const register = async (data) => {
-
-
-
-    fetch(import.meta.env.VITE_AUTH_API + "/signup", {
+    fetch(import.meta.env.VITE_AUTH_API + "/users/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -84,7 +79,28 @@ export const register = async (data) => {
                 alert(data.message);
             }
         });
-
-
 };
 
+
+export const updateUser = async (data) => {
+    const token = JSON.parse(localStorage.getItem("user-jwt"));
+    fetch(import.meta.env.VITE_AUTH_API + "/profile/edit", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+        mode: "cors"
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+                console.log("WTF", data)
+                return data
+            } else {
+                console.log(data)
+                alert(data.message);
+            }
+        });
+};
