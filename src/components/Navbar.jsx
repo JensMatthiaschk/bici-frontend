@@ -26,7 +26,7 @@ export default function Navbar() {
                                 Profile
                                 <span className="badge">New</span>
                             </a> */}
-                            <label htmlFor="my-modal-3">
+                            <label htmlFor="ProfileForm">
                                 Edit Profile
                             </label>
                         </li>

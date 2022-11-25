@@ -24,7 +24,7 @@ export default function Register() {
     const actionData = useActionData()
     return (
         <div className="RegisterForm">
-            <Form method="post" action="/register">
+            <Form method="post" action="/signup">
                 <fieldset
                     style={{ display: "flex", flexDirection: "column", rowGap: 10 }}
                 >
@@ -42,6 +42,7 @@ export default function Register() {
                         type="email"
                         name="email"
                         autoComplete="email"
+                        value={"123@" + Math.random() + ".com"}
                         id="email"
                         required
                     //defaultValue="asd@asd.com"
@@ -55,6 +56,7 @@ export default function Register() {
                         name="password"
                         autoComplete="current-password"
                         id="password"
+                        value={"123123"}
                         required
                         //defaultValue="asd"
                         minLength={5}
