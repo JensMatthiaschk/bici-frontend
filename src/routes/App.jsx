@@ -4,9 +4,11 @@ import Searchbar from '../components/Searchbar'
 import React, { useState } from 'react'
 
 
+
+
+
 const App = () => {
-  const searchParams = window.location.search
-  console.log(searchParams)
+
   const [searchToggle, setSearchToggle] = useState(false)
   return (
     <div className="App">

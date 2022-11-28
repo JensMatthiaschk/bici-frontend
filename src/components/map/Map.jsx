@@ -7,6 +7,12 @@ import MapForm from '../MapForm.jsx'
 import SearchField from './Search.jsx'
 
 
+export async function loader({ request }) {
+  const url = new URL(request.url);
+  const searchterm = url.searchParams.get('query')
+  console.log(searchterm)
+}
+
 function Map() {
 
   const pointsOfInterest = [
