@@ -23,10 +23,9 @@ const mapForm = () => {
     const [events, setEvents] = useState(false)
     const [host, setHost] = useState(false)
 
-
     return (<>
 
-        <Form method='post' action='/'>
+        <Form method='post' action='/a'>
             <div className="form-control">
                 <fieldset>
                     <label className="label cursor-pointer">
@@ -49,6 +48,10 @@ const mapForm = () => {
                         <span className="label-text">Host</span>
                         <input name="host" type="checkbox" value={host} className="checkbox" onChange={() => setHost(!host)} />
                     </label>
+                    <label className="label cursor-pointer">
+                        <span className="label-text">Host</span>
+                        <input name="host" type="checkbox" value={host} className="checkbox" onChange={() => setHost(!host)} />
+                    </label>
                     <label className="label">
                         <span className="label-text">Description</span>
 
@@ -56,7 +59,7 @@ const mapForm = () => {
 
                     <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="tell somthing about the pin"></textarea>
                     <label className="label">
-                        <span className="label-text-alt">Your bio</span>
+                        <span className="label-text-alt">Let know other cyclist what they can find here.<br /> Don't leave this blank!</span>
 
                     </label>
                     <div className="modal-action">
@@ -78,3 +81,4 @@ const mapForm = () => {
 }
 
 export default mapForm
+
