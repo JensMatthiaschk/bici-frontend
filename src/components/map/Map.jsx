@@ -1,10 +1,10 @@
 import React from 'react'
-import { MapContainer, TileLayer, Marker, Popup, useMap} from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import LocationMarkers from './LocationMarkers.jsx'
 import MyLocationMarker from './MyLocationMarker.jsx'
-
-//import MyComponent from './NewPin.jsx'
+import SearchField from './Search.jsx'
+import Searchbar from '../Searchbar.jsx'
 
 function Map() {
 
@@ -24,8 +24,9 @@ function Map() {
 
     
 
-
   return (
+<>
+
 <div className="Map"> 
  <div className="drawer">
     <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -35,9 +36,10 @@ function Map() {
             attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
             url="https://api.maptiler.com/maps/openstreetmap/{z}/{x}/{y}.jpg?key=uXMr0o4kkFgSpwtCw09i"
         />
+        
         {pointsOfInterest.map(({latLong, name}) =>
         <Marker key={ latLong } position={ latLong }>
-            <Popup>
+            <Popup autoPan={true}>
               <div className="card  w-100 bg-base-100 shadow-xl">
                 <figure><img src="https://placeimg.com/400/225/arch" alt="Album"/></figure>
                 <div className="card-body">
@@ -65,6 +67,7 @@ function Map() {
       </div>
     </div>
   </div>
+</>
   )
 }
 
