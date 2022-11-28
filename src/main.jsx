@@ -9,7 +9,7 @@ import Register, { action as registerAction } from './routes/Register'
 //import Layout from './routes/Layout.jsx'
 import Login, { action as loginAction } from './routes/Login.jsx'
 import Profile from './routes/Profile'
-
+import { action as mapAction } from './components/MapForm.jsx'
 
 
 const router = createBrowserRouter([
@@ -18,15 +18,16 @@ const router = createBrowserRouter([
     path: "/a",
     element: <App />
   },
+
   {
-    path: "register",
+    path: "/register",
     element: <Register />,
     action: registerAction
   },
 
 
   {
-    path: "profile/",
+    path: "/profile",
     element: <Profile />,
 
   },
@@ -35,10 +36,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <Landing />,
     errorElement: <Errorpage />,
+    action: mapAction,
     children: [
 
       {
-        path: "login",
+        path: "/login",
         element: <Login />,
         action: loginAction
 
