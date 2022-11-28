@@ -44,23 +44,18 @@ function Map() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              
-              
-            </Popup>
-        </Marker>
-        )}
-        <MyLocationMarker/>
-        <LocationMarkers />
-        </MapContainer>
-      </div> 
-      <div className="drawer-side">
-        <label htmlFor="my-drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-           
-        </ul>
-
+                </Popup>
+              </Marker>
+            )}
+            <MyLocationMarker />
+            <LocationMarkers />
+          </MapContainer>
+        </div>
+        <div className="drawer-side">
+          <label htmlFor="my-drawer" className="drawer-overlay"></label>
+          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+          </ul>
+        </div>
       </div>
     </div>
   )

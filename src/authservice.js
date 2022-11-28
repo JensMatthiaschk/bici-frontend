@@ -36,7 +36,6 @@ export const login = async (data) => {
 }
 
 export const verifier = async () => {
-
     const token = JSON.parse(localStorage.getItem("user-jwt"));
     try {
         const res = await fetch(import.meta.env.VITE_AUTH_API + "/users/me", {
@@ -96,11 +95,33 @@ export const updateUser = async (data) => {
         .then((response) => response.json())
         .then((data) => {
             if (data.success) {
-                console.log("WTF", data)
                 return data
             } else {
                 console.log(data)
                 alert(data.message);
             }
         });
+};
+
+export const getProfileData = async (data) => {
+    const token = JSON.parse(localStorage.getItem("user-jwt"));
+    if (!token) {
+        alert("You are not logged in")
+    }
+    const res = await fetch(import.meta.env.VITE_AUTH_API + '/profile', {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+        mode: "cors"
+    })
+    if (!res.ok) {
+        const responseError = await res.json()
+        return responseError.message
+    } else {
+        const responseData = await res.json()
+        return responseData
+    }
 };
