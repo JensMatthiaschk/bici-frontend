@@ -8,8 +8,13 @@ const App = () => {
   return (
     <div className="App">
       <Navbar />
-      <h1>Hello World!</h1>
-      <Map />
+      <div className='relative'>
+        <div className="drawer-content w-full">
+          <Map />
+        </div>
+        <button class="absolute top-16 btn  rounded-full">🔎</button>
+      </div>
+
     </div>
   )
 }

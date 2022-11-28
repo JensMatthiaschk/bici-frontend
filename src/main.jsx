@@ -17,7 +17,8 @@ const router = createBrowserRouter([
 
   {
     path: "/a",
-    element: <App />
+    element: <App />,
+    action: mapAction
   },
 
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Landing />,
     errorElement: <Errorpage />,
-    action: mapAction,
+
     children: [
 
       {
