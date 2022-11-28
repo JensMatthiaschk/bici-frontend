@@ -18,9 +18,10 @@ const ProfileForm = () => {
     return (
         <>
             <input type="checkbox" id="ProfileForm" className="modal-toggle" />
-            <div className="modal">
-                <div className="modal-box relative">
-                    <label htmlFor="ProfileForm" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <label htmlFor="ProfileForm" className="modal cursor-pointer">
+                <label htmlFor="ProfileForm" className="btn btn-xs btn-circle top-3 right-4 absolute">✕</label>
+                <label className="modal-box relative scrollbar-hide" htmlFor="">
+
                     <h2 className="text-sky-600 pb-4 text-1xl uppercase font-bold text-center">Edit Profile</h2>
                     <Form method="post" action="/profile" encType="multipart/form-data">
                         <fieldset className="flex flex-col items-center gap-3"
@@ -87,8 +88,8 @@ const ProfileForm = () => {
                             </button>
                         </fieldset>
                     </Form>
-                </div>
-            </div>
+                </label>
+            </label>
         </>
     )
 }
