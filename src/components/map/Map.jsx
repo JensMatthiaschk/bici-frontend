@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css'
 import LocationMarkers from './LocationMarkers.jsx'
 import MyLocationMarker from './MyLocationMarker.jsx'
 import MapForm from '../MapForm.jsx'
+import SearchField from './Search.jsx'
 
 
 function Map() {
@@ -68,6 +69,7 @@ function Map() {
 
         </div>
       </div>
+      <SearchField />
     </div>
   )
 }
