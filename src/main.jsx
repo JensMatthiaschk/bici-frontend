@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Landing />,
     errorElement: <Errorpage />,
-    action: mapAction,
+
     children: [
       {
         path: "/login",
