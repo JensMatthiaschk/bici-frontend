@@ -25,7 +25,7 @@ function LocationMarkers() {
               location: data.resourceSets[0].resources[0].name
 
             });
-            console.log(markers)
+
 
 
           } else {
