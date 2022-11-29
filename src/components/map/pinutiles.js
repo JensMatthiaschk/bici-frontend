@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const pinutiles = (formData, pindData) => {
+export const addLangLat = (formData, pindData) => {
     const { latlng } = pindData
     formData.append(latlng)
     console.log(formData)

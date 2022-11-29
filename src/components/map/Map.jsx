@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import LocationMarkers from './LocationMarkers.jsx'
 import MyLocationMarker from './MyLocationMarker.jsx'
 import MapForm from '../MapForm.jsx'
 import SearchField from './Search.jsx'
+//import mapContext from '../mapContext.js'
+
+
+
 
 
 function Map() {
+
 
   const pointsOfInterest = [
     {
@@ -21,6 +26,7 @@ function Map() {
       name: "Tempelhof"
     }
   ]
+
 
   return (
     <div className="Map">

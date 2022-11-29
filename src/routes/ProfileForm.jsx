@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, useActionData, redirect } from 'react-router-dom';
 import { updateUser } from '../authservice';
+import useForceUpdate from 'use-force-update';
 
 export async function action({ request }) {
     try {
         const formData = Object.fromEntries(await request.formData());
+        console.log(formData)
+        Object.keys(formData).forEach((k) => (formData[k] === '' || formData[k] === undefined) && delete formData[k]);
+        console.log(formData)
         const updatedUserData = await updateUser(formData);
         // console.log("updatedUserData", updatedUserData)
     } catch (error) {
@@ -15,6 +19,9 @@ export async function action({ request }) {
 
 const ProfileForm = () => {
     const actionData = useActionData()
+    const forceUpdate = useForceUpdate();
+
+
     return (
         <>
             <input type="checkbox" id="ProfileForm" className="modal-toggle" />
