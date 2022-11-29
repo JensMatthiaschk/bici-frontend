@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form } from "react-router-dom";
+import { MapContext } from "../components/mapContext";
 
 export default function Searchbar() {
+  const [search, setSearch] = useState("");
+  const { setSearchedMarkers } = useContext(MapContext);
   return (
     <div>
       <Form method="get" action="/a">
