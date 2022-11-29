@@ -86,10 +86,9 @@ export const updateUser = async (data) => {
     fetch(import.meta.env.VITE_AUTH_API + "/profile/edit", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(data),
+        body: data,
         mode: "cors"
     })
         .then((response) => response.json())
