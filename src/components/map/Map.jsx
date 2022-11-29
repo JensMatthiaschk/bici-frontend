@@ -1,19 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import LocationMarkers from './LocationMarkers.jsx'
 import MyLocationMarker from './MyLocationMarker.jsx'
 import MapForm from '../MapForm.jsx'
 import SearchField from './Search.jsx'
+//import mapContext from '../mapContext.js'
 
 
-export async function loader({ request }) {
-  const url = new URL(request.url);
-  const searchterm = url.searchParams.get('query')
-  console.log(searchterm)
-}
+
+
 
 function Map() {
+
 
   const pointsOfInterest = [
     {
@@ -27,6 +26,7 @@ function Map() {
       name: "Tempelhof"
     }
   ]
+
 
   return (
     <div className="Map">

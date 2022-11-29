@@ -2,12 +2,21 @@ import Navbar from '../components/Navbar'
 import Map from '../components//map/Map.jsx'
 import Searchbar from '../components/Searchbar'
 import React, { useState } from 'react'
+import { verifier } from '../authservice'
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 
 const App = () => {
+  const navigate = useNavigate();
+  (async () => {
+    const token = await verifier();
+    // console.log('tok1', token)
+    if (!token) return navigate("/login");
+
+  })();
 
   const [searchToggle, setSearchToggle] = useState(false)
   return (

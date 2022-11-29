@@ -1,17 +1,13 @@
 import { useMapEvents, Marker, Popup } from 'react-leaflet'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { MapContext } from '../mapContext'
 
 
 function LocationMarkers() {
-  /* const initialMarkers = [{
-    latlng: [51.505, -0.09], // search current location
+  const { marker, setMarker } = useContext(MapContext)
 
-    location: "",
 
-  }]; */
-  const [markers, setMarkers] = useState('');
-  const [actual, setActual] = useState()
-  console.log(markers)
+  console.log(marker)
   const map = useMapEvents({
     click(e) {
 
@@ -20,7 +16,7 @@ function LocationMarkers() {
         .then(data => {
 
           if (data.resourceSets[0].resources.length) {
-            setMarkers({
+            setMarker({
               latlng: e.latlng,
               location: data.resourceSets[0].resources[0].name
 
@@ -45,15 +41,15 @@ function LocationMarkers() {
   return (
 
     <React.Fragment >
-      {markers.latlng ?
-        <Marker position={markers.latlng} >
+      {marker.latlng ?
+        <Marker position={marker.latlng} >
 
           <div className='card  bg-base-100 '>
             <Popup className='bg-transparent'>
               <div className="card  w bg-base-100 ">
 
                 <div className="card-body">
-                  {markers.location}
+                  {marker.location}
                   <div className="card-actions justify-end">
                     <label htmlFor="my-modal-6" className="btn btn-sm">Set a Pin</label>
 
@@ -67,6 +63,8 @@ function LocationMarkers() {
           </div>
         </Marker> : null}
     </React.Fragment>
+
+
   );
 }
 
