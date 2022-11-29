@@ -21,3 +21,4 @@ import {useMap, Marker, Popup} from 'react-leaflet'
     }
 
     export default MyLocationMarker
+    

@@ -118,7 +118,9 @@ export const getProfileData = async (data) => {
     })
     if (!res.ok) {
         const responseError = await res.json()
+        console.log('nip')
         return responseError.message
+
     } else {
         const responseData = await res.json()
         return responseData

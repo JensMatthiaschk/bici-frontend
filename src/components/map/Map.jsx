@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import LocationMarkers from './LocationMarkers.jsx'
 import MyLocationMarker from './MyLocationMarker.jsx'
+import MapForm from '../MapForm.jsx'
+import SearchField from './Search.jsx'
+//import mapContext from '../mapContext.js'
+
+
 
 
 
 function Map() {
+
 
   const pointsOfInterest = [
     {
@@ -21,6 +27,7 @@ function Map() {
     }
   ]
 
+
   return (
     <div className="Map">
       <div className="drawer">
@@ -33,17 +40,16 @@ function Map() {
             />
             {pointsOfInterest.map(({ latLong, name }) =>
               <Marker key={latLong} position={latLong}>
-                <Popup>
-                  <div className="card  w-100 bg-base-100 shadow-xl">
-                    <figure><img src="https://placeimg.com/400/225/arch" alt="Album" /></figure>
-                    <div className="card-body">
-                      <h2 className="card-title">{name}</h2>
-                      <p>Easily customizable.</p>
-                      <div className="card-actions justify-end">
-                        <label htmlFor="my-drawer" className="btn btn-sm btn-info drawer-button">More Info</label>
-                      </div>
-                    </div>
+                <Popup autoPan={true}>
+
+                  <figure><img src="https://placeimg.com/400/225/arch" alt="Album" /></figure>
+
+                  <h2 className="card-title">{name}</h2>
+                  <p>Easily customizable. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ea et eligendi qui possimus assumenda sed at perferendis atque eius sunt, fuga, impedit, corporis voluptates tempora non iusto. Recusandae, iusto!</p>
+                  <div className="card-actions justify-end">
+                    <label htmlFor="my-drawer" className="btn btn-sm btn-info drawer-button">More Info</label>
                   </div>
+
                 </Popup>
               </Marker>
             )}
@@ -54,9 +60,21 @@ function Map() {
         <div className="drawer-side">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+
+
           </ul>
+
         </div>
       </div>
+      <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
+          <MapForm />
+
+        </div>
+      </div>
+      <SearchField />
     </div>
   )
 }

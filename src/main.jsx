@@ -12,6 +12,7 @@ import Login, { action as loginAction } from './routes/Login.jsx'
 import Profile, { loader as profileDataLoader } from './routes/Profile'
 import ProfileForm from './routes/ProfileForm.jsx'
 import { action as mapAction } from './components/MapForm.jsx'
+import MapContextProvider from './components/mapContext'
 
 
 const router = createBrowserRouter([
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Landing />,
     errorElement: <Errorpage />,
-    action: mapAction,
+
     children: [
       {
         path: "/login",
@@ -35,13 +36,23 @@ const router = createBrowserRouter([
     ]
   },
   {
+    path: "/map",
+    element: <App />,
+    action: mapAction
+  },
+  {
     path: "/profile",
     element: <Profile />,
     loader: profileDataLoader,
     action: updateUserAction,
+
+
+
   },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <MapContextProvider>
+    <RouterProvider router={router} />
+  </MapContextProvider>
 )
