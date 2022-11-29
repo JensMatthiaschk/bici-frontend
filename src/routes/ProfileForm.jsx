@@ -5,11 +5,19 @@ import useForceUpdate from 'use-force-update';
 
 export async function action({ request }) {
     try {
-        const formData = Object.fromEntries(await request.formData());
-        console.log(formData)
-        Object.keys(formData).forEach((k) => (formData[k] === '' || formData[k] === undefined) && delete formData[k]);
-        console.log(formData)
-        const updatedUserData = await updateUser(formData);
+        const data = new FormData();
+        const formInput = Object.fromEntries(await request.formData());
+        console.log("formInput", formInput)
+        //Object.keys(formInput).forEach((k) => (formInput[k] === '' || formInput[k] === undefined) && delete formInput[k]);
+        formInput.nickname && data.append("nickname", formInput.nickname)
+        formInput.address && data.append("address", formInput.address)
+        formInput.description && data.append("description", formInput.description)
+        formInput.bikeType && data.append("bikeType", formInput.bikeType)
+        formInput.cell && data.append("cell", formInput.cell)
+        formInput.birthday && data.append("birthday", formInput.birthday)
+        formInput.avatar_img && data.append("avatar_img", formInput.avatar_img)
+        console.log("DATA", data)
+        const updatedUserData = await updateUser(data);
         // console.log("updatedUserData", updatedUserData)
     } catch (error) {
         console.error(error);
