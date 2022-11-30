@@ -28,6 +28,7 @@ export const Login = () => {
                 // style={{ display: "flex", flexDirection: "column", rowGap: 10 }}
                 >
                     <label htmlFor="Email or UserName">Email or username</label>
+                    <br />
                     <input className="input input-bordered w-full max-w-xs"
                         type="text"
                         name="email"
@@ -35,7 +36,9 @@ export const Login = () => {
                         id="email"
                         required
                     />
+                    <br />
                     <label htmlFor="password">password</label>
+                    <br />
                     <input className="input input-bordered w-full max-w-xs"
                         type="password"
                         name="password"
@@ -43,7 +46,8 @@ export const Login = () => {
                         id="password"
                         required
                     />
-                    <button type="submit" style={{ backgroundColor: "lightblue" }}>
+                    <br />
+                    <button type="submit" className='btn'>
                         Login
                     </button>
                 </fieldset>

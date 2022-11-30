@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, useActionData, redirect } from 'react-router-dom';
 import { updateUser } from '../authservice';
+import useForceUpdate from 'use-force-update';
 
 export async function action({ request }) {
     try {
@@ -26,6 +27,9 @@ export async function action({ request }) {
 
 const ProfileForm = () => {
     const actionData = useActionData()
+    const forceUpdate = useForceUpdate();
+
+
     return (
         <>
             <input type="checkbox" id="ProfileForm" className="modal-toggle" />
