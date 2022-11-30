@@ -1,12 +1,43 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Form } from "react-router-dom";
+import { MapContext } from "../components/mapContext";
+import { useMap, Marker, Popup } from 'react-leaflet'
+const initialSearch = window.location.search.split("=")[1] || "";
 
 export default function Searchbar() {
+  const [search, setSearch] = useState(initialSearch);
+  const { searchedMarkers, setSearchedMarkers } = useContext(MapContext);
+  console.log("search", searchedMarkers);
+
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const placeSearched = `https://dev.virtualearth.net/REST/v1/Locations/?query=${search}&maxResults=1&key=AoqHihRk2OT53P1kI_39CCr6qbxPrJ4bQwJG-9au9bz-CQ0bjbPllLhnOOlCX2kA`
+    console.log(placeSearched)
+    fetch(placeSearched)
+      .then(res => res.json())
+      .then(data => {
+
+        console.log("woot", (data.resourceSets[0].estimatedTotal))
+        if (data.resourceSets[0].estimatedTotal > 0) {
+          setSearchedMarkers(data.resourceSets[0].resources[0].point)
+          console.log("a", searchedMarkers)
+        } else {
+          setSearchedMarkers([])
+          console.log("b", searchedMarkers)
+        }
+      });
+
+
+  }
+
   return (
     <div>
-      <Form method="get" action="/a">
+      <Form onSubmit={handleSearchSubmit}>
         <div className="input-group">
           <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Search"
             className="input input-bordered"
