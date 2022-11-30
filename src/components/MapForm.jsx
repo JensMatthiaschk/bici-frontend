@@ -32,7 +32,7 @@ const mapForm = () => {
     const [events, setEvents] = useState(false)
     const [host, setHost] = useState(false)
     const [swim, setSwim] = useState(false)
-    const handleChange = () => setMarker(e.target.value)
+
     const latlang = marker.latlng
     console.log('fromForm', latlang)
     return (<>
@@ -64,7 +64,7 @@ const mapForm = () => {
                         <span className="label-text">Place to swim or refresh</span>
                         <input name="swim" type="checkbox" value={swim} className="checkbox" onChange={() => setSwim(!swim)} />
                     </label>
-                    <input name="location" value={marker.latlng} onChange={handleChange} hidden />
+                    <input name="location" value={marker.latlng} hidden />
                     {/*<input name="lang" type="json" value={marker.latlng} hidden /> */}
                     <label className="label">
                         <span className="label-text">Description</span>
