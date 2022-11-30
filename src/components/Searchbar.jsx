@@ -7,10 +7,12 @@ const initialSearch = window.location.search.split("=")[1] || "";
 export default function Searchbar() {
   const [search, setSearch] = useState(initialSearch);
   const { searchedMarkers, setSearchedMarkers } = useContext(MapContext);
+  const { searchToggle, setSearchToggle } = useContext(MapContext);
   console.log("search", searchedMarkers);
 
 
   const handleSearchSubmit = (e) => {
+    setSearchToggle(false)
     e.preventDefault();
     const placeSearched = `https://dev.virtualearth.net/REST/v1/Locations/?query=${search}&maxResults=1&key=AoqHihRk2OT53P1kI_39CCr6qbxPrJ4bQwJG-9au9bz-CQ0bjbPllLhnOOlCX2kA`
     console.log(placeSearched)
@@ -43,7 +45,7 @@ export default function Searchbar() {
             className="input input-bordered"
             name="query"
           />
-          <button types="submit" className="btn btn-primary btn-square">
+          <button types="submit" className="btn btn-primary btn-square" >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

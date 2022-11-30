@@ -1,10 +1,10 @@
 import Navbar from '../components/Navbar'
 import Map from '../components//map/Map.jsx'
 import Searchbar from '../components/Searchbar'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { verifier } from '../authservice'
 import { useNavigate } from 'react-router-dom'
-
+import { MapContext } from '../components/mapContext'
 
 
 
@@ -18,7 +18,7 @@ const App = () => {
 
   })();
 
-  const [searchToggle, setSearchToggle] = useState(false)
+  const { searchToggle, setSearchToggle } = useContext(MapContext);
   return (
     <div className="App">
       <Navbar />
