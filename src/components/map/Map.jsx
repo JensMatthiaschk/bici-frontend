@@ -1,17 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import LocationMarkers from './LocationMarkers.jsx'
 import MyLocationMarker from './MyLocationMarker.jsx'
 import MapForm from '../MapForm.jsx'
-import SearchField from './Search.jsx'
-//import mapContext from '../mapContext.js'
+import { MapContext } from '../mapContext.jsx'
+import SearchedMarker from './SearchMarker.jsx'
 
 
 
 
 
 function Map() {
+  const { searchedMarkers, setSearchedMarkers } = useContext(MapContext)
 
 
   const pointsOfInterest = [
@@ -27,6 +28,9 @@ function Map() {
     }
   ]
 
+  useEffect(() => {
+    console.log("><<<>>>>>>>", searchedMarkers)
+  }, [searchedMarkers])
 
   return (
     <div className="Map">
@@ -55,6 +59,8 @@ function Map() {
             )}
             <MyLocationMarker />
             <LocationMarkers />
+
+            <SearchedMarker />
           </MapContainer>
         </div>
         <div className="drawer-side">
@@ -74,7 +80,6 @@ function Map() {
 
         </div>
       </div>
-      <SearchField />
     </div>
   )
 }

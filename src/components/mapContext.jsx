@@ -7,6 +7,7 @@ const MapContextProvider = (props) => {
     const [searchedMarkers, setSearchedMarkers] = useState([]);
 
 
+
     return (
         <MapContext.Provider value={{ marker, setMarker, searchedMarkers, setSearchedMarkers }}>
             {props.children}
