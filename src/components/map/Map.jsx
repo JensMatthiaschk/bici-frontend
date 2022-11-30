@@ -1,11 +1,13 @@
 import React, { useContext, useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import LocationMarkers from './LocationMarkers.jsx'
 import MyLocationMarker from './MyLocationMarker.jsx'
 import MapForm from '../MapForm.jsx'
 import { MapContext } from '../mapContext.jsx'
 import SearchedMarker from './SearchMarker.jsx'
+import { useMapEvents } from 'react-leaflet/hooks'
+
 
 
 
@@ -31,6 +33,18 @@ function Map() {
   useEffect(() => {
     console.log("><<<>>>>>>>", searchedMarkers)
   }, [searchedMarkers])
+
+  function DragPinLoadingTestComponent() {
+    const map = useMapEvents({
+      moveend: (e) => {
+
+        console.log(e.target.getBounds())
+
+
+      },
+    })
+    return null
+  }
 
   return (
     <div className="Map">
@@ -59,7 +73,7 @@ function Map() {
             )}
             <MyLocationMarker />
             <LocationMarkers />
-
+            <DragPinLoadingTestComponent />
             <SearchedMarker />
           </MapContainer>
         </div>

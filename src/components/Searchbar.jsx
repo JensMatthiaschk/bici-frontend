@@ -20,7 +20,7 @@ export default function Searchbar() {
       .then(res => res.json())
       .then(data => {
 
-        console.log("woot", (data.resourceSets[0].estimatedTotal))
+
         if (data.resourceSets[0].estimatedTotal > 0) {
           setSearchedMarkers(data.resourceSets[0].resources[0].point)
           console.log("a", searchedMarkers)
