@@ -70,8 +70,32 @@ const Landing = () => {
                 </div>
             </div>
         </div>
-        <div>
 
+        <div className=' flex flex-row  place-content-evenly py-14'>
+            <div className="card w-96 shadow-xl" style={{ 'backgroundImage': 'url("http://roadandmountainbikereviews.co.uk/wp-content/uploads/2019/04/Focus-O1EL-SL.jpg")' }} >
+                <div className="card-body">
+                    <h2 className="card-title">Share your ride and find a partner</h2>
+                    <p>Post where you going and chat with other riders to share your trip</p>
+                    <div className="card-actions justify-end">
+                    </div>
+                </div>
+            </div>
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className="card-title">Find points of interest</h2>
+                    <p>search in our Map shere will you sleep next night, where to take showers or even go swimming </p>
+                    <div className="card-actions justify-end">
+                    </div>
+                </div>
+            </div>
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className="card-title">Chat with other Riders</h2>
+                    <p>Make contact with other Riders and with chat about the places you've visit</p>
+                    <div className="card-actions justify-end">
+                    </div>
+                </div>
+            </div>
         </div>
 
         {/* Put this part before </body> tag */}
