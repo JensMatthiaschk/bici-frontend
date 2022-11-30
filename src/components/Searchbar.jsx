@@ -14,6 +14,8 @@ export default function Searchbar() {
     e.preventDefault();
     const placeSearched = `https://dev.virtualearth.net/REST/v1/Locations/?query=${search}&maxResults=1&key=AoqHihRk2OT53P1kI_39CCr6qbxPrJ4bQwJG-9au9bz-CQ0bjbPllLhnOOlCX2kA`
     console.log(placeSearched)
+
+
     fetch(placeSearched)
       .then(res => res.json())
       .then(data => {
