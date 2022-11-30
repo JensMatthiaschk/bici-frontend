@@ -22,7 +22,6 @@ export const Profile = () => {
         const token = await verifier();
         // console.log('tok1', token)
         if (!token) return navigate("/login");
-
     })();
 
 
@@ -31,7 +30,7 @@ export const Profile = () => {
         <Navbar />
         <div className="text-center mb-3">
             <div className="flex justify-center mb-5">
-                <img className="w-14 rounded-full" src={`${profileData.data.avatar_url}`} />
+                <img className="w-14 rounded-full" src={`${profileData.data.avatar_img.aws_url}`} />
             </div>
             <h3 className='font-bold'>Account Details</h3>
             {profileData.data.nickname !== "" ?
@@ -70,7 +69,7 @@ export const Profile = () => {
                     <p className='text-sm'>{new Date(profileData.data.birthday).toLocaleDateString('en-IN')}</p>
                 </>
                 : null}
-            {profileData.data.description === "" || profileData.data.address === "" || profileData.data.cell === "" || profileData.data.birthday === "" ?
+            {profileData.data.nickname === "" || profileData.data.description === "" || profileData.data.bikeStyle === "" || profileData.data.address === "" || profileData.data.cell === "" || profileData.data.birthday === "" ?
                 <>
                     <p className='text-sm mt-4 mb-2'>Please complete filling out your profile details</p>
                     <label htmlFor='ProfileForm' className="btn btn-sm">Edit Profile</label>
