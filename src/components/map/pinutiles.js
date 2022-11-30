@@ -1,10 +1,5 @@
-import React from 'react'
-
-export const addLangLat = (formData, pindData) => {
-    const { latlng } = pindData
-    formData.append(latlng)
-    console.log(formData)
-    return formData
-
-
+function useRegex(input) {
+    let regex = /LatLng\([^)]*\)/i;
+    return regex.test(input);
 }
+console.log(useRegex('LatLng(52.486334, 13.574295)'))

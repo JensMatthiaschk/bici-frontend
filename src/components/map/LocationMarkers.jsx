@@ -5,7 +5,7 @@ import { MapContext } from '../mapContext'
 
 function LocationMarkers() {
   const { marker, setMarker } = useContext(MapContext)
-
+  console.log('check', marker.latlng)
 
   console.log(marker)
   const map = useMapEvents({
@@ -25,7 +25,7 @@ function LocationMarkers() {
 
 
           } else {
-            setActual({
+            setMarker({
               latlng: e.latlng,
               location: "No location found"
 
@@ -44,23 +44,23 @@ function LocationMarkers() {
       {marker.latlng ?
         <Marker position={marker.latlng} >
 
-          <div className='card  bg-base-100 '>
-            <Popup className='bg-transparent'>
-              <div className="card  w bg-base-100 ">
 
-                <div className="card-body">
-                  {marker.location}
-                  <div className="card-actions justify-end">
-                    <label htmlFor="my-modal-6" className="btn btn-sm">Set a Pin</label>
+          <Popup className='bg-transparent'>
+            <div className="card  w bg-base-100 ">
 
-
+              <div className="card-body">
+                {marker.location}
+                <div className="card-actions justify-end">
+                  <label htmlFor="my-modal-6" className="btn btn-sm">Set a Pin</label>
 
 
-                  </div>
+
+
                 </div>
               </div>
-            </Popup>
-          </div>
+            </div>
+          </Popup>
+
         </Marker> : null}
     </React.Fragment>
 

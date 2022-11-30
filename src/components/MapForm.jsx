@@ -2,7 +2,7 @@ import { LatLng } from 'leaflet';
 import React, { useContext, useState } from 'react'
 import { Form } from 'react-router-dom'
 import { postPin } from '../mapservice';
-import { addLangLat } from './map/pinutiles';
+
 
 import { MapContext } from './mapContext'
 
