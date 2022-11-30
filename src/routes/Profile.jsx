@@ -22,7 +22,6 @@ export const Profile = () => {
         const token = await verifier();
         // console.log('tok1', token)
         if (!token) return navigate("/login");
-
     })();
 
     return (<>
@@ -31,7 +30,7 @@ export const Profile = () => {
         {profileData.data ?
             <div className="text-center mb-3">
                 <div className="flex justify-center mb-5">
-                    <img className="w-14 rounded-full" src={`${profileData.data.avatar_url ? profileData.data.avatar_url : ''}`} />
+                    <img className="w-14 rounded-full" src={`${profileData.data.avatar_img.aws_url ? profileData.data.avatar_img.aws_url : ''}`} />
                 </div>
                 <h3 className='font-bold'>Account Details</h3>
                 {profileData.data.nickname !== "" ?
@@ -44,14 +43,12 @@ export const Profile = () => {
                         <h6 className='font-bold text-sm'>My bike style</h6>
                         <p className='text-sm'>{profileData.data.bikeType}</p>
                     </> : null}
-
                 {profileData.data.description ?
                     <>
                         <h6 className='font-bold text-sm'>About me</h6>
                         <p className='text-sm'>about me: {profileData.data.description}</p>
                     </>
                     : null}
-
                 {profileData.data.address ?
                     <>
                         <h6 className='font-bold text-sm'>address</h6>
