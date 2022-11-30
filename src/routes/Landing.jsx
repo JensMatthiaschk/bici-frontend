@@ -1,7 +1,6 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import Login from './Login'
+import Register from './Register'
 
 // const image_hero = {
 //     backgroundImage: "url('https://acrediteounao.com/wp-content/uploads/2016/12/mapa.jpg')",
@@ -14,17 +13,31 @@ import Login from './Login'
 
 const Landing = () => {
     return (<>
-        <Outlet />
 
-        <div className="carousel w-full " style={{ height: "80vh " }}>
-            <div id="slide1" className="carousel-item relative w-full  bg-cover bg-center" style={{ 'backgroundImage': `url("http://cdn2.cyclist.co.uk/sites/cyclist/files/2017/01/st0040420.jpg")` }}>
+        <div className="navbar bg-base-100">
+            <div className="navbar-start">
+                <div className="avatar">
+                    <div className="w-24 h-12 rounded-full">
+                        <img src="https://i.pinimg.com/originals/5d/b5/dc/5db5dc9427e5198fe694bc7594099538.gif" />
+                    </div>
+                </div>
+            </div>
+            <div className="navbar-end space-x-1.5 ">
+                <label htmlFor="my-modal-5" className="btn btn-info">Log In</label>
+                <label htmlFor="my-modal-6" className="btn btn-info">Sign Up</label>
+            </div>
+        </div>
+
+
+        <div className="carousel w-full" style={{ height: "80vh " }}>
+            <div id="slide1" className="flex carousel-item relative w-full  bg-cover bg-center " style={{ 'backgroundImage': `url("http://cdn2.cyclist.co.uk/sites/cyclist/files/2017/01/st0040420.jpg")` }}>
                 <div className="hero-overlay bg-opacity-40  ">
-                    <div className="hero-content text-center text-neutral-content">
-                        <div className="max-w-md">
+                    <div className="pt-60	 text-center text-neutral-content">
+                        <div className="fmax-w-md">
                             <h2 className="mb-5 text-5xl font-bold text-yellow-50">Hello Rider</h2>
-                            <h3 className="mb-5 text-yellow-50">"Prepare your self for the best bike expirience"</h3>
+                            <h3 className="mb-5 text-yellow-50">"Sign Up for free and prepare your self for the best bike expirience"</h3>
                             {/* The button to open modal */}
-                            <label htmlFor="my-modal-6" className="btn">open modal</label>
+                            <label htmlFor="my-modal-6" className="btn btn-warning">Sing Up </label>
 
 
                         </div>
@@ -57,20 +70,28 @@ const Landing = () => {
                 </div>
             </div>
         </div>
-        <footer className="footer footer-center p-4 bg-base-300 text-base-content">
-            <div>
+        <div>
 
+        </div>
 
-            </div>
-        </footer>
         {/* Put this part before </body> tag */}
         <input type="checkbox" id="my-modal-6" className="modal-toggle" />
         <div className="modal modal-bottom sm:modal-middle">
             <div className="modal-box">
-                <h3 className="font-bold text-lg">Please Login or SignUp!</h3>
+                <h3 className="font-bold text-lg">Please SignUp!</h3>
+                <Register />
+                <div className="modal-action">
+                    <label htmlFor="my-modal-6" className="btn">Close</label>
+                </div>
+            </div>
+        </div>
+        <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+        <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box">
+                <h3 className="font-bold text-lg">Please Login</h3>
                 <Login />
                 <div className="modal-action">
-                    <label htmlFor="my-modal-6" className="btn">Yay!</label>
+                    <label htmlFor="my-modal-5" className="btn">Close</label>
                 </div>
             </div>
         </div>
