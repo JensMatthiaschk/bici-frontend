@@ -23,9 +23,10 @@ export async function action({ request }) {
 export default function Register() {
     const actionData = useActionData()
     return (
-        <div className="RegisterForm">
+        <div className="RegisterForm ">
             <Form method="post" action="/signup">
                 <fieldset
+
                     style={{ display: "flex", flexDirection: "column", rowGap: 10 }}
                 >
                     <label htmlFor="name">name</label>
@@ -67,7 +68,7 @@ export default function Register() {
                         type="password"
                         placeholder="Confirm Password"
                     /> */}
-                    <button type="submit" style={{ backgroundColor: "lightblue" }}>
+                    <button type="submit" className="btn">
                         Register
                     </button>
                 </fieldset>
