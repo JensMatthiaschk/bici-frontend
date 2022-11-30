@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import myIcon from './Icons.jsx'
+import myIcon from './Icons.js'
 import { useMap, Marker, Popup } from 'react-leaflet'
 import { MapContext } from "../mapContext";
 import { geoToObj } from '../../latlng.js';
