@@ -8,7 +8,7 @@ import { MapContext } from '../mapContext.jsx'
 import SearchedMarker from './SearchMarker.jsx'
 import { useMapEvents } from 'react-leaflet/hooks'
 import DragPinLoading from './DragPinLoading.jsx'
-
+import Comment from '../Comment.jsx'
 
 
 
@@ -80,7 +80,7 @@ function Map() {
         <div className="drawer-side">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-
+            <Comment />
 
           </ul>
 
