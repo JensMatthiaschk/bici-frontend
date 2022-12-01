@@ -88,7 +88,7 @@ function Map() {
       </div>
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
+        <div className="modal-box scrollbar-hide">
           <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
           <MapForm />
 
