@@ -97,6 +97,7 @@ const ProfileForm = () => {
                                 type="file"
                                 name="avatar_img"
                                 id="avatar_img"
+                                accept='image/png, image/jpg, image/jpeg, image/gif'
                             />
                             <button type="submit" className="btn btn-sm">
                                 Submit
