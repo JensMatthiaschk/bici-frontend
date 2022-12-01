@@ -1,5 +1,5 @@
 function geoToObj(array) {
-    console.log({ array })
+
     if (Array.isArray(array) && array.length === 2) {
         return { lat: array[0], lng: array[1] }
     } else {

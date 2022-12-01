@@ -43,7 +43,7 @@ export const Login = () => {
                         type="password"
                         name="password"
                         autoComplete="current-password"
-                        id="password"
+                        id="passwordL"
                         required
                     />
                     <br />

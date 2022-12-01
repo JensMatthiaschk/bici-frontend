@@ -44,7 +44,7 @@ export default function Register() {
                         name="email"
                         autoComplete="email"
                         value={"123@" + Math.random() + ".com"}
-                        id="email"
+                        id="emailR"
                         required
                     //defaultValue="asd@asd.com"
                     />
