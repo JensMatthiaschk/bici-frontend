@@ -30,7 +30,7 @@ export const Profile = () => {
         {profileData.data ?
             <div className="text-center mb-3">
                 <div className="flex justify-center mb-5">
-                    <img className="w-14 rounded-full" src={`${profileData.data.avatar_img.aws_url ? profileData.data.avatar_img.aws_url : ''}`} />
+                    <img className="w-14 rounded-full" src={`${profileData.data.avatar_img.aws_url}`} />
                 </div>
                 <h3 className='font-bold'>Account Details</h3>
                 {profileData.data.nickname !== "" ?
