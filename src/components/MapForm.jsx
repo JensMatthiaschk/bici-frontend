@@ -19,10 +19,10 @@ export const action = async ({ request, }) => {
         !pinData.swim ? data.append("swim", false) : data.append("swim", pinData.swim)
         pinData.description && data.append("description", pinData.description)
         data.append("location", pinData.location)
-        for (let i = 0; i < pinData.pin_imgs.length; i++) {
-            data.append('pin_images[]', file[i])
-        }
-        //pinData.pin_img && data.append("pin_imgs", pinData.pin_imgs)
+        // for (let i = 0; i < pinData.pin_imgs.length; i++) {
+        //     data.append('pin_images[]', file[i])
+        // }
+        pinData.pin_imgs && data.append("pin_imgs", pinData.pin_imgs)
         console.log('new', pinData)
         console.log("DATA", data)
         const updatePin = await postPin(data);
@@ -86,9 +86,9 @@ const mapForm = () => {
                     <label htmlFor="pin_imgs"></label>
                     <input className="file-input file-input-bordered file-input-md w-full max-w-xs"
                         type="file"
-                        name="pin_img"
-                        id="pin_img"
-                        multiple='multiple'
+                        name="pin_imgs[]"
+                        id="pin_imgs"
+                        multiple
                         accept='image/png, image/jpg, image/jpeg, image/gif'
                     />
                     <div className="modal-action">
