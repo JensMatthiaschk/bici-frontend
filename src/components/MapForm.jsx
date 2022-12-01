@@ -10,19 +10,23 @@ import { MapContext } from './mapContext'
 export const action = async ({ request, }) => {
 
     try {
-
+        const data = new FormData()
         const pinData = Object.fromEntries(await request.formData());
-        Object.keys(pinData).forEach((k) => (pinData[k] === '' || pinData[k] === undefined) && delete pinData[k]);
+        //Object.keys(pinData).forEach((k) => (pinData[k] === '' || pinData[k] === undefined) && delete pinData[k]);
+        data.append("camping", pinData.camping)
+        data.append("shower", pinData.shower)
+        data.append("repair", pinData.repair)
+        data.append("events", pinData.events)
+        data.append("host", pinData.host)
+        data.append("swim", pinData.swim)
+        pinData.description && data.append("description", pinData.description)
+        data.append("location", pinData.location)
+        pinData.pin_img && data.append("pin_img", pinData.pin_img)
         console.log('new', pinData)
-        const updatePin = await postPin(pinData);
-
-
-
+        const updatePin = await postPin(data);
     }
     catch (err) { console.log(err) }
 }
-
-
 
 const mapForm = () => {
     const { marker, setMarker } = useContext(MapContext)
@@ -37,7 +41,8 @@ const mapForm = () => {
     console.log('fromForm', latlang)
     return (<>
 
-        <Form method='post' action='/map'>
+        <label htmlFor="my-modal-6" className="btn btn-xs btn-circle top-3 right-4 absolute">✕</label>
+        <Form method='post' action='/map' encType='multipart/form-data'>
             <div className="form-control">
                 <fieldset>
                     <label className="label cursor-pointer">
@@ -76,6 +81,12 @@ const mapForm = () => {
                         <span className="label-text-alt">Let know other cyclist what they can find here.<br /> Don't leave this blank!</span>
 
                     </label>
+                    <label htmlFor="pin_img"></label>
+                    <input className="file-input file-input-bordered file-input-md w-full max-w-xs"
+                        type="file"
+                        name="pin_img"
+                        id="pin_img"
+                    />
                     <div className="modal-action">
 
                         <button className="btn w-24" type="submit"  >
@@ -89,7 +100,6 @@ const mapForm = () => {
             </div>
 
         </Form>
-
 
     </>)
 }
