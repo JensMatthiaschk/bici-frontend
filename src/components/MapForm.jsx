@@ -2,8 +2,6 @@ import { LatLng } from 'leaflet';
 import React, { useContext, useState } from 'react'
 import { Form } from 'react-router-dom'
 import { postPin } from '../mapservice';
-
-
 import { MapContext } from './mapContext'
 
 
@@ -13,16 +11,20 @@ export const action = async ({ request, }) => {
         const data = new FormData()
         const pinData = Object.fromEntries(await request.formData());
         //Object.keys(pinData).forEach((k) => (pinData[k] === '' || pinData[k] === undefined) && delete pinData[k]);
-        data.append("camping", pinData.camping)
-        data.append("shower", pinData.shower)
-        data.append("repair", pinData.repair)
-        data.append("events", pinData.events)
-        data.append("host", pinData.host)
-        data.append("swim", pinData.swim)
+        !pinData.camping ? data.append("camping", false) : data.append("camping", pinData.camping)
+        !pinData.shower ? data.append("shower", false) : data.append("shower", pinData.shower)
+        !pinData.repair ? data.append("repair", false) : data.append("repair", pinData.repair)
+        !pinData.events ? data.append("events", false) : data.append("events", pinData.events)
+        !pinData.host ? data.append("host", false) : data.append("host", pinData.host)
+        !pinData.swim ? data.append("swim", false) : data.append("swim", pinData.swim)
         pinData.description && data.append("description", pinData.description)
         data.append("location", pinData.location)
-        pinData.pin_img && data.append("pin_img", pinData.pin_img)
+        for (let i = 0; i < pinData.pin_imgs.length; i++) {
+            data.append('pin_images[]', file[i])
+        }
+        //pinData.pin_img && data.append("pin_imgs", pinData.pin_imgs)
         console.log('new', pinData)
+        console.log("DATA", data)
         const updatePin = await postPin(data);
     }
     catch (err) { console.log(err) }
@@ -81,11 +83,13 @@ const mapForm = () => {
                         <span className="label-text-alt">Let know other cyclist what they can find here.<br /> Don't leave this blank!</span>
 
                     </label>
-                    <label htmlFor="pin_img"></label>
+                    <label htmlFor="pin_imgs"></label>
                     <input className="file-input file-input-bordered file-input-md w-full max-w-xs"
                         type="file"
                         name="pin_img"
                         id="pin_img"
+                        multiple='multiple'
+                        accept='image/png, image/jpg, image/jpeg, image/gif'
                     />
                     <div className="modal-action">
 
