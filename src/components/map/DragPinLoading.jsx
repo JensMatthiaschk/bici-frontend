@@ -11,7 +11,7 @@ export default function DragPinLoading() {
   const [firstLoad, setFirstLoad] = useState(true)
   const { bounds, setBounds } = useContext(MapContext)
   const { mapPins, setMapPins } = useContext(MapContext)
-
+  const { pinId, setPinId } = useContext(MapContext)
   const map = useMapEvents({
     moveend: (e) => {
 
@@ -46,23 +46,30 @@ export default function DragPinLoading() {
   }
 
   return mapPins.length === 0 ? null : (<>
+
+
     {
       mapPins.map((pin) =>
-        <Marker key={pin.location.coordinates} position={geoToObj(pin.location.coordinates)} icon={markerColor(pin)}>
+        <Marker key={pin._id} position={geoToObj(pin.location.coordinates)} icon={markerColor(pin)}>
           <Popup autoPan={true}>
 
             <figure><img src="https://placeimg.com/400/225/arch" alt="Album" /></figure>
 
             <h2 className="card-title"></h2>
             <p>{pin.description}</p>
-            <div className="card-actions justify-end">
-              <label htmlFor="my-drawer" className="btn btn-sm btn-info drawer-button">More Info</label>
-            </div>
 
+            {/* <label htmlFor="my-drawer1" className="btn btn-primary drawer-button">1Open drawer</label> */}
+            <button className="btn" onClick={() => setPinId(pin._id)}><label htmlFor="my-drawer" className="btn btn-primary drawer-button">Open drawer</label></button>
           </Popup>
+
         </Marker>
       )
     }
+    {console.log('pinId', pinId)}
+
+
+
+
   </>
   );
 

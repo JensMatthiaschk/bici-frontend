@@ -10,6 +10,7 @@ export const action = async ({ request, }) => {
     try {
         const data = new FormData()
         const pinData = Object.fromEntries(await request.formData());
+        console.log(pinData)
         //Object.keys(pinData).forEach((k) => (pinData[k] === '' || pinData[k] === undefined) && delete pinData[k]);
         !pinData.camping ? data.append("camping", false) : data.append("camping", pinData.camping)
         !pinData.shower ? data.append("shower", false) : data.append("shower", pinData.shower)
@@ -19,10 +20,12 @@ export const action = async ({ request, }) => {
         !pinData.swim ? data.append("swim", false) : data.append("swim", pinData.swim)
         pinData.description && data.append("description", pinData.description)
         data.append("location", pinData.location)
+        //hab ich aus kommentiert wegen can not read unding of undefined of length
+        /*  
         for (let i = 0; i < pinData.pin_imgs.length; i++) {
             data.append('pin_images[]', file[i])
         }
-        //pinData.pin_img && data.append("pin_imgs", pinData.pin_imgs)
+        //pinData.pin_img && data.append("pin_imgs", pinData.pin_imgs) */
         console.log('new', pinData)
         console.log("DATA", data)
         const updatePin = await postPin(data);

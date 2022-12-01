@@ -8,6 +8,7 @@ const MapContextProvider = (props) => {
     const [searchToggle, setSearchToggle] = useState(false)
     const [bounds, setBounds] = useState([])
     const [mapPins, setMapPins] = useState('')
+    const [pinId, setPinId] = useState('')
 
 
     return (
@@ -16,7 +17,8 @@ const MapContextProvider = (props) => {
             searchedMarkers, setSearchedMarkers,
             searchToggle, setSearchToggle,
             bounds, setBounds,
-            mapPins, setMapPins
+            mapPins, setMapPins,
+            pinId, setPinId
         }}>
             {props.children}
         </MapContext.Provider>
