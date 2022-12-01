@@ -7,7 +7,7 @@ import MapForm from '../MapForm.jsx'
 import { MapContext } from '../mapContext.jsx'
 import SearchedMarker from './SearchMarker.jsx'
 import { useMapEvents } from 'react-leaflet/hooks'
-
+import DragPinLoading from './DragPinLoading.jsx'
 
 
 
@@ -34,7 +34,7 @@ function Map() {
     console.log("><<<>>>>>>>", searchedMarkers)
   }, [searchedMarkers])
 
-  function DragPinLoadingTestComponent() {
+  /* function DragPinLoadingComponent() {
     const map = useMapEvents({
       moveend: (e) => {
 
@@ -45,7 +45,7 @@ function Map() {
     })
     return null
   }
-
+ */
   return (
     <div className="Map">
       <div className="drawer">
@@ -73,7 +73,7 @@ function Map() {
             )}
             <MyLocationMarker />
             <LocationMarkers />
-            <DragPinLoadingTestComponent />
+            <DragPinLoading />
             <SearchedMarker />
           </MapContainer>
         </div>
