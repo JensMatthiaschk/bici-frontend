@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import myIcon from './Icons.js'
+import { foundPin } from './Icons.js'
 import { useMap, Marker, Popup } from 'react-leaflet'
 import { MapContext } from "../mapContext";
 import { geoToObj } from '../../latlng.js';
@@ -15,7 +15,7 @@ function SearchedMarker() {
     }, [searchedMarkers]);
 
     return searchedMarkers.length === 0 ? null : (
-        <Marker position={geoToObj(searchedMarkers.coordinates)} icon={myIcon}>
+        <Marker position={geoToObj(searchedMarkers.coordinates)} icon={foundPin}>
             <Popup>{searchedMarkers.coordinates}</Popup>
         </Marker>
     );
