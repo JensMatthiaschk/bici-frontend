@@ -13,7 +13,7 @@ import Profile, { loader as profileDataLoader } from './routes/Profile'
 import ProfileForm from './routes/ProfileForm.jsx'
 import { action as mapAction } from './components/MapForm.jsx'
 import MapContextProvider from './components/mapContext'
-
+import Comment, { action as commentAction } from './components/Comment'
 
 const router = createBrowserRouter([
 
@@ -38,7 +38,14 @@ const router = createBrowserRouter([
   {
     path: "/map",
     element: <App />,
-    action: mapAction
+    action: mapAction,
+    children: [
+      {
+        path: "comment",
+        element: <Comment />,
+        action: commentAction
+      }]
+
   },
   {
     path: "/profile",
