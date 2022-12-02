@@ -24,6 +24,7 @@ const mapForm = () => {
             !e.target.elements.host.value ? data.append("host", false) : data.append("host", e.target.elements.host.value)
             !e.target.elements.swim.value ? data.append("swim", false) : data.append("swim", e.target.elements.swim.value)
             e.target.elements.description.value && data.append("description", e.target.elements.description.value)
+            data.append("location", marker.latlng)
             photoArray.forEach((img) => data.append("pin_imgs", img))
             console.log("DATA", data)
             const updatePin = await postPin(data);
