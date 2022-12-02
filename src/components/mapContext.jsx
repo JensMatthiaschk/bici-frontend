@@ -10,13 +10,15 @@ const MapContextProvider = (props) => {
     const [mapPins, setMapPins] = useState('')
 
 
+
     return (
         <MapContext.Provider value={{
             marker, setMarker,
             searchedMarkers, setSearchedMarkers,
             searchToggle, setSearchToggle,
             bounds, setBounds,
-            mapPins, setMapPins
+            mapPins, setMapPins,
+
         }}>
             {props.children}
         </MapContext.Provider>

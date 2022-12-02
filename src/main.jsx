@@ -11,7 +11,7 @@ import { action as updateUserAction } from './routes/ProfileForm.jsx'
 import Login, { action as loginAction } from './routes/Login.jsx'
 import Profile, { loader as profileDataLoader } from './routes/Profile'
 import ProfileForm from './routes/ProfileForm.jsx'
-import { action as mapAction } from './components/MapForm.jsx'
+//import { action as mapAction } from './components/MapForm.jsx'
 import MapContextProvider from './components/mapContext'
 
 
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
   {
     path: "/map",
     element: <App />,
-    action: mapAction
+    //action: mapAction
   },
   {
     path: "/profile",

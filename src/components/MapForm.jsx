@@ -1,36 +1,37 @@
 import { LatLng } from 'leaflet';
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef } from 'react'
 import { Form } from 'react-router-dom'
 import { postPin } from '../mapservice';
 import { MapContext } from './mapContext'
 
 
-export const action = async ({ request, }) => {
-
-    try {
-        const data = new FormData()
-        const pinData = Object.fromEntries(await request.formData());
-        //Object.keys(pinData).forEach((k) => (pinData[k] === '' || pinData[k] === undefined) && delete pinData[k]);
-        !pinData.camping ? data.append("camping", false) : data.append("camping", pinData.camping)
-        !pinData.shower ? data.append("shower", false) : data.append("shower", pinData.shower)
-        !pinData.repair ? data.append("repair", false) : data.append("repair", pinData.repair)
-        !pinData.events ? data.append("events", false) : data.append("events", pinData.events)
-        !pinData.host ? data.append("host", false) : data.append("host", pinData.host)
-        !pinData.swim ? data.append("swim", false) : data.append("swim", pinData.swim)
-        pinData.description && data.append("description", pinData.description)
-        data.append("location", pinData.location)
-        // for (let i = 0; i < pinData.pin_imgs.length; i++) {
-        //     data.append('pin_images[]', file[i])
-        // }
-        pinData.pin_imgs && data.append("pin_imgs", pinData.pin_imgs)
-        console.log('new', pinData)
-        console.log("DATA", data)
-        const updatePin = await postPin(data);
-    }
-    catch (err) { console.log(err) }
-}
 
 const mapForm = () => {
+    const imgInput = useRef()
+
+    const handleMapFormSubmit = async (e) => {
+        e.preventDefault()
+
+        try {
+            const data = new FormData()
+            const photoArray = Object.values(imgInput.current.files)
+            console.log("Photos", photoArray)
+            !e.target.elements.camping.value ? data.append("camping", false) : data.append("camping", e.target.elements.camping.value)
+            !e.target.elements.shower.value ? data.append("shower", false) : data.append("shower", e.target.elements.shower.value)
+            !e.target.elements.repair.value ? data.append("repair", false) : data.append("repair", e.target.elements.repair.value)
+            !e.target.elements.events.value ? data.append("events", false) : data.append("events", e.target.elements.events.value)
+            !e.target.elements.host.value ? data.append("host", false) : data.append("host", e.target.elements.host.value)
+            !e.target.elements.swim.value ? data.append("swim", false) : data.append("swim", e.target.elements.swim.value)
+            e.target.elements.description.value && data.append("description", e.target.elements.description.value)
+            data.append("location", marker.latlng)
+            photoArray.forEach((img) => data.append("pin_imgs", img))
+            //console.log('new', pinData)
+            console.log("DATA", data)
+            const updatePin = await postPin(data);
+        }
+        catch (err) { console.log(err) }
+    }
+
     const { marker, setMarker } = useContext(MapContext)
     const [camp, setcamp] = useState(false)
     const [shower, setShower] = useState(false)
@@ -44,7 +45,7 @@ const mapForm = () => {
     return (<>
 
         <label htmlFor="my-modal-6" className="btn btn-xs btn-circle top-3 right-4 absolute">✕</label>
-        <Form method='post' action='/map' encType='multipart/form-data'>
+        <form method='post' onSubmit={handleMapFormSubmit} action='/map' encType='multipart/form-data'>
             <div className="form-control">
                 <fieldset>
                     <label className="label cursor-pointer">
@@ -75,35 +76,31 @@ const mapForm = () => {
                     {/*<input name="lang" type="json" value={marker.latlng} hidden /> */}
                     <label className="label">
                         <span className="label-text">Description</span>
-
                     </label>
-
                     <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="tell somthing about the pin"></textarea>
                     <label className="label">
                         <span className="label-text-alt">Let know other cyclist what they can find here.<br /> Don't leave this blank!</span>
-
                     </label>
                     <label htmlFor="pin_imgs"></label>
                     <input className="file-input file-input-bordered file-input-md w-full max-w-xs"
+                        ref={imgInput}
                         type="file"
-                        name="pin_imgs[]"
+                        name="pin_imgs"
                         id="pin_imgs"
                         multiple
                         accept='image/png, image/jpg, image/jpeg, image/gif'
                     />
                     <div className="modal-action">
-
                         <button className="btn w-24" type="submit"  >
                             {/*  Close Modal */}
                             <label htmlFor="my-modal-6" className="btn w-24 border-none bg-transparent"> Pin it!</label>
                         </button>
-
                     </div>
                 </fieldset>
 
             </div>
 
-        </Form>
+        </form>
 
     </>)
 }

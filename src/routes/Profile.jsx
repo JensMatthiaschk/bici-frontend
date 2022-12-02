@@ -25,7 +25,6 @@ export const Profile = () => {
     })();
 
     return (<>
-
         <Navbar />
         {profileData.data ?
             <div className="text-center mb-3">
