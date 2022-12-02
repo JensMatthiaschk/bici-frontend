@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Form } from 'react-router-dom'
 import { mapComment } from '../mapservice';
-
+import { MapContext } from './mapContext'
 /* export const action = async ({ request }) => {
 
     try {
@@ -16,9 +16,10 @@ import { mapComment } from '../mapservice';
 }
  */
 
-const Comment = () => {
+const Comment = (props) => {
     const [comment, setComment] = useState('')
     const [input, setInput] = useState('')
+    const { pinId, setPinId } = useContext(MapContext)
 
 
     const handleChange = (event) => {
@@ -35,12 +36,16 @@ const Comment = () => {
 
 
     useEffect(() => {
-        console.log(comment)
+        const formData = {}
+        formData.comment = comment
+        formData.pin_id = pinId
+        console.log(formData)
+        console.log(comment, pinId)
 
         try {
 
             (async () => {
-                await mapComment(comment);
+                await mapComment(formData);
 
             })();
         }
