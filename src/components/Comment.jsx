@@ -40,7 +40,7 @@ const Comment = () => {
         try {
 
             (async () => {
-                await mapComment();
+                await mapComment(comment);
 
             })();
         }
