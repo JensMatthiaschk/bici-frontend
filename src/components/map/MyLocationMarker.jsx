@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import myIcon from './Icons.js'
+import { myIcon } from './Icons.js'
 import { useMap, Marker, Popup } from 'react-leaflet'
 
 function MyLocationMarker() {

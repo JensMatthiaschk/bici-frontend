@@ -3,6 +3,7 @@
 
 
 export const getPinData = async (bou) => {
+    if (!bou) return
     const res = await fetch(import.meta.env.VITE_AUTH_API + '/map/getpins', {
         method: "post",
         headers: {
@@ -17,6 +18,7 @@ export const getPinData = async (bou) => {
         return responseError.message
 
     } else {
+        console.log(res)
         const mapPins = await res.json()
         console.log('responseData', mapPins)
         return mapPins
