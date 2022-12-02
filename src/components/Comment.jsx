@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form } from 'react-router-dom'
 import { mapComment } from '../mapservice';
 
-export const action = async ({ request }) => {
+/* export const action = async ({ request }) => {
 
     try {
         const formData = Object.fromEntries(await request.formData());
@@ -14,34 +14,64 @@ export const action = async ({ request }) => {
 
     }
 }
-
+ */
 
 const Comment = () => {
+    const [comment, setComment] = useState('')
+    const [input, setInput] = useState('')
 
 
+    const handleChange = (event) => {
+
+        setInput(event.target.value)
+
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        setComment(input)
+    }
+
+
+    useEffect(() => {
+        console.log(comment)
+
+        try {
+
+            (async () => {
+                await mapComment();
+
+            })();
+        }
+        catch (err) {
+            console.log(err)
+
+        }
+
+    }, [comment])
 
     return (
-        <Form method='post' action='comment'>
+
+        <form onSubmit={handleSubmit}>
             <div className="form-control">
-                <fieldset>
 
-                    <textarea name="comment" className="textarea textarea-bordered h-24 w-full" placeholder="tell somthing about the pin"></textarea>
-                    <label className="label">
-                        <span className="label-text-alt">Let know other cyclist what they can find here.<br /> Don't leave this blank!</span>
+                <textarea type="text" onChange={handleChange} name="comment"
+                    className="textarea textarea-bordered h-24 w-full" placeholder="your comment here, be nice an precice! ">
 
-                    </label>
-                    <div className="modal-action">
+                </textarea>
 
-                        <button className="btn w-24" type="submit"  >
+                <div className="modal-action">
 
-                        </button>
+                    <button className="btn w-24" type="submit"  >comment</button>
 
-                    </div>
-                </fieldset>
+
+                </div>
+
 
             </div>
 
-        </Form>
+        </form >
     )
 }
 
