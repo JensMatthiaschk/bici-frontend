@@ -1,10 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MapContext } from "../mapContext";
 import { postRating } from "../../mapservice";
+import { getRatings } from "../../mapservice";
 
 export const PinRating = () => {
-
     const { pinId } = useContext(MapContext)
+    const [ratings, setRatings] = useState()
+
+    useEffect(() => {
+        const data = { pinId }
+        const comments = getRatings(data).then(data => setRatings(data.data))
+    }, [pinId])
 
     async function handleRatingChange(e) {
         e.preventDefault()
@@ -17,6 +23,8 @@ export const PinRating = () => {
         }
         catch (err) { console.log(err) }
     }
+
+    console.log("RATINGS", ratings)
 
     return (
         <>

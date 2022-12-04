@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MapContext } from "./mapContext";
 import { postRating } from "../mapservice";
+import { getRatings } from "../mapservice";
 
 export const RatingForm = () => {
 
@@ -17,6 +18,10 @@ export const RatingForm = () => {
         }
         catch (err) { console.log(err) }
     }
+
+    useEffect(() => {
+
+    }, [pinId])
 
     return (
         <>
