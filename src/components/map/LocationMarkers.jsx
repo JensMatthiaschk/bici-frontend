@@ -1,7 +1,7 @@
 import { useMapEvents, Marker, Popup } from 'react-leaflet'
 import React, { useState, useContext } from 'react'
 import { MapContext } from '../mapContext'
-
+import { white } from "./Icons.js"
 
 function LocationMarkers() {
   const { marker, setMarker } = useContext(MapContext)
@@ -42,7 +42,7 @@ function LocationMarkers() {
 
     <React.Fragment >
       {marker.latlng ?
-        <Marker position={marker.latlng} >
+        <Marker position={marker.latlng} icon={white}>
 
 
           <Popup className='bg-transparent'>

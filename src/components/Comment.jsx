@@ -17,6 +17,7 @@ import { MapContext } from './mapContext'
  */
 
 const Comment = (props) => {
+    const [firstLoad, setFirstLoad] = useState(true)
     const [comment, setComment] = useState('')
     const [input, setInput] = useState('')
     const { pinId, setPinId } = useContext(MapContext)
@@ -32,6 +33,7 @@ const Comment = (props) => {
         event.preventDefault();
 
         setComment(input)
+        setInput('')
     }
 
 
@@ -41,7 +43,10 @@ const Comment = (props) => {
         formData.pin_id = pinId
         console.log(formData)
         console.log(comment, pinId)
-
+        if (firstLoad) {
+            setFirstLoad(false)
+            return
+        }
         try {
 
             (async () => {
