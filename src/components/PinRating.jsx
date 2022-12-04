@@ -21,7 +21,7 @@ export const RatingForm = () => {
     return (
         <>
             <legend>Star Rating</legend>
-            <form onMouseUp={handleRatingChange} className="rating rating-lg">
+            <form onMouseUp={handleRatingChange} className="rating rating-md">
                 <input type="radio" value="1" name="rating-4" className="mask mask-star-2 bg-green-500" />
                 <input type="radio" value="2" name="rating-4" className="mask mask-star-2 bg-green-500" />
                 <input type="radio" value="3" name="rating-4" className="mask mask-star-2 bg-green-500" />

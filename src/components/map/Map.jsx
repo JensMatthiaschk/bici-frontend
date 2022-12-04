@@ -8,8 +8,6 @@ import { MapContext } from '../mapContext.jsx'
 import SearchedMarker from './SearchMarker.jsx'
 import { useMapEvents } from 'react-leaflet/hooks'
 import DragPinLoading from './DragPinLoading.jsx'
-import Comment from '../Comment.jsx'
-import { RatingForm } from '../RatingForm.jsx'
 import { Drawer } from './Drawer.jsx'
 
 
@@ -40,18 +38,18 @@ function Map() {
 
   // console.log("Comments arrived", commentData)
 
-    /* function DragPinLoadingComponent() {
-      const map = useMapEvents({
-        moveend: (e) => {
+  /* function DragPinLoadingComponent() {
+    const map = useMapEvents({
+      moveend: (e) => {
 
-          console.log(e.target.getBounds())
+        console.log(e.target.getBounds())
 
 
-        },
-      })
-      return null
-    }
-   */
+      },
+    })
+    return null
+  }
+ */
   return (
     <div className="Map">
       <div className="drawer">

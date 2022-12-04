@@ -23,7 +23,7 @@ export const postPin = async (data) => {
 };
 
 
-export const mapComment = async (data) => {
+export const postMapComment = async (data) => {
     const token = JSON.parse(localStorage.getItem("user-jwt"));
     fetch(import.meta.env.VITE_AUTH_API + "/comment", {
         method: "POST",
@@ -54,7 +54,7 @@ export const getMapComments = async (data) => {
     const res = await fetch(import.meta.env.VITE_AUTH_API + '/comment/get', {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
+             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),
