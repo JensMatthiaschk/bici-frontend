@@ -127,3 +127,29 @@ export const getProfileData = async (data) => {
         return responseData
     }
 };
+
+
+export const getCommentData = async (data) => {
+    const token = JSON.parse(localStorage.getItem("user-jwt"));
+    if (!token) {
+        alert("You are not logged in")
+    }
+    const res = await fetch(import.meta.env.VITE_AUTH_API + '/comment', {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+        mode: "cors"
+    })
+    if (!res.ok) {
+        const responseError = await res.json()
+        console.log('COMMMMEEENNTT!')
+        return responseError.message
+
+    } else {
+        const responseData = await res.json()
+        return responseData
+    }
+};

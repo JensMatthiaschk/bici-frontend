@@ -1,27 +1,22 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { Form } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom';
 import { mapComment } from '../mapservice';
 import { MapContext } from './mapContext'
-/* export const action = async ({ request }) => {
+import { getCommentData } from '../authservice';
 
-    try {
-        const formData = Object.fromEntries(await request.formData());
-        console.log(formData)
-        const comment = await mapComment(formData);
-    }
-    catch (err) {
-        console.log(err)
-
-    }
+export async function loader() {
+    return getCommentData();
 }
- */
 
 const Comment = (props) => {
+    const CommentData = useLoaderData();
     const [firstLoad, setFirstLoad] = useState(true)
     const [comment, setComment] = useState('')
     const [input, setInput] = useState('')
     const { pinId, setPinId } = useContext(MapContext)
 
+
+    console.log("COMMMENT IN FRONTEND", CommentData)
 
     const handleChange = (event) => {
 
