@@ -1,7 +1,9 @@
+
 import { useContext } from "react"
 import { MapContext } from "../mapContext.jsx"
 import PinComments from "./PinComments.jsx"
 import { PinRating } from "./PinRating.jsx"
+
 
 export const Drawer = () => {
     const { pinId, setPinId } = useContext(MapContext)
@@ -13,6 +15,7 @@ export const Drawer = () => {
                 <PinRating />
                 <PinComments pin={pinId} />
                 {/* <>{pinId}</> */}
+
             </ul>
         </div>
     )

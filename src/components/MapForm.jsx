@@ -26,7 +26,7 @@ const mapForm = () => {
             e.target.elements.description.value && data.append("description", e.target.elements.description.value)
             data.append("location", marker.latlng)
             photoArray.forEach((img) => data.append("pin_imgs", img))
-            console.log("DATA", data)
+            console.log("DATA", data.swim)
             const updatePin = await postPin(data);
         }
         catch (err) { console.log(err) }
@@ -73,7 +73,7 @@ const mapForm = () => {
                         <input name="swim" type="checkbox" value={swim} className="checkbox" onChange={() => setSwim(!swim)} />
                     </label>
                     <input name="location" value={marker.latlng} hidden />
-                    {/*<input name="lang" type="json" value={marker.latlng} hidden /> */}
+
                     <label className="label">
                         <span className="label-text">Description</span>
                     </label>

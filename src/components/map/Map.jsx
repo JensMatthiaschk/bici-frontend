@@ -42,14 +42,14 @@ function Map() {
     const map = useMapEvents({
       moveend: (e) => {
 
-        console.log(e.target.getBounds())
+          console.log(e.target.getBounds())
 
 
-      },
-    })
-    return null
-  }
- */
+        },
+      })
+      return null
+    }
+   */
   return (
     <div className="Map">
       <div className="drawer">
