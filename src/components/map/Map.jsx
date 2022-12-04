@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import LocationMarkers from './LocationMarkers.jsx'
@@ -10,6 +10,7 @@ import { useMapEvents } from 'react-leaflet/hooks'
 import DragPinLoading from './DragPinLoading.jsx'
 import Comment from '../Comment.jsx'
 import { RatingForm } from '../RatingForm.jsx'
+import { Drawer } from './Drawer.jsx'
 
 
 
@@ -17,6 +18,7 @@ import { RatingForm } from '../RatingForm.jsx'
 function Map() {
   const { searchedMarkers, setSearchedMarkers } = useContext(MapContext)
   const { pinId, setPinId } = useContext(MapContext)
+
 
 
   const pointsOfInterest = [
@@ -36,18 +38,20 @@ function Map() {
     console.log("><<<>>>>>>>", searchedMarkers)
   }, [searchedMarkers])
 
-  /* function DragPinLoadingComponent() {
-    const map = useMapEvents({
-      moveend: (e) => {
+  // console.log("Comments arrived", commentData)
 
-        console.log(e.target.getBounds())
+    /* function DragPinLoadingComponent() {
+      const map = useMapEvents({
+        moveend: (e) => {
+
+          console.log(e.target.getBounds())
 
 
-      },
-    })
-    return null
-  }
- */
+        },
+      })
+      return null
+    }
+   */
   return (
     <div className="Map">
       <div className="drawer">
@@ -79,7 +83,7 @@ function Map() {
             <SearchedMarker />
           </MapContainer>
         </div>
-        <div className="drawer-side">
+        {/* <div className="drawer-side">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
             <Comment pin={pinId} />
@@ -87,7 +91,8 @@ function Map() {
             <>{pinId}</>
           </ul>
 
-        </div>
+        </div> */}
+        <Drawer />
       </div>
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
