@@ -32,8 +32,8 @@ const Landing = () => {
         <div className="carousel w-screen h-screen" /* style={{ height: "80vh " }} */>
             <div id="slide1" className="flex carousel-item relative w-full  bg-cover bg-center " style={{ 'backgroundImage': `url("http://cdn2.cyclist.co.uk/sites/cyclist/files/2017/01/st0040420.jpg")` }}>
                 <div className="hero-overlay bg-opacity-40  ">
-                    <div className="pt-40	 text-center text-neutral-content">
-                        <div className="fmax-w-md">
+                    <div className="flex h-screen text-center items-center pb-32 sm:items-center pb-20 ">
+                        <div className="w-full">
                             <h2 className="mb-5 text-5xl font-bold text-yellow-50">Hello Rider</h2>
                             <h3 className="mb-5 text-3xl text-yellow-50">"Sign Up for free and prepare your self for the best bike expirience"</h3>
                             {/* The button to open modal */}
@@ -48,7 +48,7 @@ const Landing = () => {
             </div>
             <div id="slide2" className="carousel-item relative w-full bg-cover bg-center " style={{ 'backgroundImage': 'url("src/assets/pexels-pavel-danilyuk-5807805.jpg")' }}>
                 <div className="hero-overlay"   >
-                    <div className="pt-2 text-center ">
+                    <div className="flex h-screen text-center items-end pt-32 sm:items-center pb-20">
                         <div className='w-full'>
                             <h2 className="mb-5 text-5xl font-bold text-yellow-50">Chat with other Riders</h2>
                             <h3 className="mb-5  text-2xl text-yellow-50">Make contact with other users and  chat about the places you have visit</h3>
@@ -63,8 +63,8 @@ const Landing = () => {
             </div>
             <div id="slide3" className="carousel-item relative w-full	 bg-cover bg-center " style={{ 'backgroundImage': `url("src/assets/image.png")` }} >
                 <div className="hero-overlay bg-opacity-40  "   >
-                    <div className="pt-80 text-center ">
-                        <div className='w-full'>
+                    <div className="flex h-screen text-center items-center pb-20 sm: px-10 ">
+                        <div className='w-full '>
                             <h2 className="mb-5 text-5xl font-bold text-yellow-50"> Find points of interest</h2>
                             <h3 className="mb-5 text-2xl text-yellow-50">  "Search in our Map where zou can filter and find where will you sleep next night,take showers, go swimming and repaire stations" </h3>
                         </div>
@@ -78,7 +78,7 @@ const Landing = () => {
             </div>
             <div id="slide4" className="carousel-item relative w-full bg-cover bg-center " style={{ 'backgroundImage': 'linear-gradient(rgba(0, 0, 255, 0.4), rgba(0, 0, 285, 0.2)), url("https://acrediteounao.com/wp-content/uploads/2016/12/mapa.jpg")', }}>
                 <div className="hero-overlay"   >
-                    <div className="pt-60 text-center ">
+                    <div className="flex h-screen text-center items-center pt-20 sm: px-10  ">
                         <div className='w-full'>
                             <h2 className="mb-5 text-5xl font-bold text-yellow-50">Share your ride and find a partner</h2>
                             <h3 className="mb-5 text-3xl text-yellow-50">Post where you going share your ride and find partners to ride with</h3>
