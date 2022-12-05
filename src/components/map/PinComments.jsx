@@ -37,14 +37,14 @@ const PinComments = (props) => {
 
             <h3>Comments</h3>
             <div className="flex flex-col w-full mb-4 mt-4">
-                {commentData && commentData.map((e) => e.comment ?
+                {commentData && commentData.reverse().map((e) => e.comment ?
                     <div key={e._id} className="flex space-x-3">
                         <div className="flex flex-shrink-0">
                             <img src="https://images.unsplash.com/photo-1507965613665-5fbb4cbb8399?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDQzfHRvd0paRnNrcEdnfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" className="h-8 w-8 object-fill rounded-full" />
                         </div>
-                        <div className="flex space-x-2 flex-col mb-5 w-full">
-                            <div className="block w-full">
-                                <div className="bg-gray-100 w-full rounded-xl px-2 pb-2">
+                        <div className="flex space-x-2 flex-col mb-5">
+                            <div className="block">
+                                <div className="bg-gray-100 rounded-xl px-2 pb-2">
                                     <div className="font-medium">
                                         <a href="#" className="hover:underline text-sm">
                                             <small> {e.user.name}</small>
