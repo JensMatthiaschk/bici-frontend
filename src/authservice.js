@@ -119,7 +119,6 @@ export const getProfileData = async (data) => {
     })
     if (!res.ok) {
         const responseError = await res.json()
-        console.log('nip')
         return responseError.message
 
     } else {
@@ -127,3 +126,5 @@ export const getProfileData = async (data) => {
         return responseData
     }
 };
+
+

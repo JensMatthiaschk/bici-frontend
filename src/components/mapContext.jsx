@@ -7,13 +7,22 @@ const MapContextProvider = (props) => {
     const [searchedMarkers, setSearchedMarkers] = useState([]);
     const [searchToggle, setSearchToggle] = useState(false)
     const [bounds, setBounds] = useState([])
-    const [mapPins, setMapPins] = useState('')
+    const [mapPins, setMapPins] = useState([])
     const [pinId, setPinId] = useState('')
 
+    const [filter, setFilter] = useState({
+        camping: true,
+        events: true,
+        host: true,
+        repair: true,
+        shower: true,
+        swim: true,
+    })
 
 
     return (
         <MapContext.Provider value={{
+            filter, setFilter,
             marker, setMarker,
             searchedMarkers, setSearchedMarkers,
             searchToggle, setSearchToggle,

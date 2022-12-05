@@ -38,13 +38,6 @@ const router = createBrowserRouter([
   {
     path: "/map",
     element: <App />,
-    //action: mapAction
-    /* children: [
-      {
-        path: "comment",
-        element: <Comment />,
-        action: commentAction
-      }] */
 
   },
   {
