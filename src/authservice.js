@@ -134,15 +134,17 @@ export const getCommentData = async (data) => {
     if (!token) {
         alert("You are not logged in")
     }
-    const res = await fetch(import.meta.env.VITE_AUTH_API + '/comment', {
-        method: "GET",
-        headers: {
+    const res = await fetch(import.meta.env.VITE_AUTH_API + '/comment/get', {
+
+        method: "POST",
+        /* headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
-        },
+        }, */
         body: JSON.stringify(data),
         mode: "cors"
     })
+    console.log('dfd', res)
     if (!res.ok) {
         const responseError = await res.json()
         console.log('COMMMMEEENNTT!')
@@ -150,6 +152,7 @@ export const getCommentData = async (data) => {
 
     } else {
         const responseData = await res.json()
+
         return responseData
     }
 };

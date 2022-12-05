@@ -4,19 +4,37 @@ import { mapComment } from '../mapservice';
 import { MapContext } from './mapContext'
 import { getCommentData } from '../authservice';
 
-export async function loader() {
-    return getCommentData();
-}
+
 
 const Comment = (props) => {
-    const CommentData = useLoaderData();
+
     const [firstLoad, setFirstLoad] = useState(true)
     const [comment, setComment] = useState('')
     const [input, setInput] = useState('')
     const { pinId, setPinId } = useContext(MapContext)
+    const [comments, setComments] = useState([])
+
+    useEffect(() => {
+        /*  if (firstLoad) {
+             setFirstLoad(false)
+             return
+         } */
+        console.log('getcom', pinId)
+        // create object key value pair for pinId
+        const pinIdObj = { pin_id: pinId }
+        console.log('pinIdObj', pinIdObj)
+        getCommentData(pinIdObj)
+            .then((data) => setComments(data))
+
+            .then(console.log('hallo', comments))
 
 
-    console.log("COMMMENT IN FRONTEND", CommentData)
+
+
+    }, [pinId])
+
+
+
 
     const handleChange = (event) => {
 
@@ -36,7 +54,7 @@ const Comment = (props) => {
         const formData = {}
         formData.comment = comment
         formData.pin_id = pinId
-        console.log(formData)
+        console.log('wor', formData)
         console.log(comment, pinId)
         if (firstLoad) {
             setFirstLoad(false)
@@ -61,7 +79,7 @@ const Comment = (props) => {
         <form onSubmit={handleSubmit}>
             <div className="form-control">
 
-                <textarea type="text" onChange={handleChange} name="comment"
+                <textarea type="text" value={input} onChange={handleChange} name="comment"
                     className="textarea textarea-bordered h-24 w-full" placeholder="your comment here, be nice an precice! ">
 
                 </textarea>

@@ -26,6 +26,7 @@ export const postPin = async (data) => {
 
 
 export const mapComment = async (data) => {
+
     const token = JSON.parse(localStorage.getItem("user-jwt"));
     fetch(import.meta.env.VITE_AUTH_API + "/comment", {
         method: "POST",
