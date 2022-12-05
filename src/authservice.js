@@ -119,7 +119,6 @@ export const getProfileData = async (data) => {
     })
     if (!res.ok) {
         const responseError = await res.json()
-        console.log('nip')
         return responseError.message
 
     } else {
@@ -129,6 +128,7 @@ export const getProfileData = async (data) => {
 };
 
 
+<<<<<<< HEAD
 export const getCommentData = async (data) => {
     const token = JSON.parse(localStorage.getItem("user-jwt"));
     if (!token) {
@@ -156,3 +156,5 @@ export const getCommentData = async (data) => {
         return responseData
     }
 };
+=======
+>>>>>>> f179ec4c5059f2e1af26a6afe5ea4f00a454e689

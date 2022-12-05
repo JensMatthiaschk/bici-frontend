@@ -29,7 +29,7 @@ const ProfileForm = () => {
     const actionData = useActionData()
     const forceUpdate = useForceUpdate();
 
-    console.log("ACTION!!", actionData.error)
+
     return (
         <>
             <input type="checkbox" id="ProfileForm" className="modal-toggle" />

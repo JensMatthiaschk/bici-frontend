@@ -97,5 +97,3 @@ const Comment = (props) => {
         </form >
     )
 }
-
-export default Comment
