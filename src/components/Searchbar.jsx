@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Form } from "react-router-dom";
 import { MapContext } from "../components/mapContext";
-import { useMap, Marker, Popup } from 'react-leaflet'
+import { useMap, Marker, Popup } from "react-leaflet";
 const initialSearch = window.location.search.split("=")[1] || "";
 
 export default function Searchbar() {
@@ -10,30 +10,24 @@ export default function Searchbar() {
   const { searchToggle, setSearchToggle } = useContext(MapContext);
   console.log("search", searchedMarkers);
 
-
   const handleSearchSubmit = (e) => {
-    setSearchToggle(false)
+    setSearchToggle(false);
     e.preventDefault();
-    const placeSearched = `https://dev.virtualearth.net/REST/v1/Locations/?query=${search}&maxResults=1&key=AoqHihRk2OT53P1kI_39CCr6qbxPrJ4bQwJG-9au9bz-CQ0bjbPllLhnOOlCX2kA`
-    console.log(placeSearched)
-
+    const placeSearched = `https://dev.virtualearth.net/REST/v1/Locations/?query=${search}&maxResults=1&key=AoqHihRk2OT53P1kI_39CCr6qbxPrJ4bQwJG-9au9bz-CQ0bjbPllLhnOOlCX2kA`;
+    console.log(placeSearched);
 
     fetch(placeSearched)
-      .then(res => res.json())
-      .then(data => {
-
-
+      .then((res) => res.json())
+      .then((data) => {
         if (data.resourceSets[0].estimatedTotal > 0) {
-          setSearchedMarkers(data.resourceSets[0].resources[0].point)
-          console.log("a", searchedMarkers)
+          setSearchedMarkers(data.resourceSets[0].resources[0].point);
+          console.log("a", searchedMarkers);
         } else {
-          setSearchedMarkers([])
-          console.log("b", searchedMarkers)
+          setSearchedMarkers([]);
+          console.log("b", searchedMarkers);
         }
       });
-
-
-  }
+  };
 
   return (
     <div>
@@ -47,7 +41,7 @@ export default function Searchbar() {
             className="input input-bordered"
             name="query"
           />
-          <button types="submit" className="btn btn-primary btn-square" >
+          <button types="submit" className="btn  btn-square">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
