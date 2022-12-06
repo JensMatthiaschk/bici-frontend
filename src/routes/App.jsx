@@ -14,7 +14,7 @@ const App = () => {
   (async () => {
     const token = await verifier();
     // console.log('tok1', token)
-    if (!token) return navigate("/login");
+    if (!token.success) return navigate("/login");
 
   })();
 

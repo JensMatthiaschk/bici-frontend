@@ -6,6 +6,7 @@ import { getRatings } from "../../mapservice";
 export const PinRating = () => {
     const { pinId } = useContext(MapContext)
     const [ratings, setRatings] = useState()
+    const [ratingInput, setRatingInput] = useState('')
 
     useEffect(() => {
         const data = { pinId }
@@ -27,10 +28,31 @@ export const PinRating = () => {
     console.log("RATINGS", ratings)
 
     return (
+
+
+        // {
+        //     [...array[5].map((star, i) => {
+        //         const ratingValueCurrent = i + 1
+
+        //      return(
+        //             <label>
+        //                 <input 
+        //                 type="radio" 
+
+        //                 value={ratingValueCurrent} 
+        //                 name="rating" 
+        //                 className="mask mask-star-2 bg-green-500" />
+        //                 onClick={}
+        //             </label>
+        //         )
+        //     })]
+        // }
+
+
         <>
             <div className="mb-4">
                 <legend className="mb-2">Average Rating</legend>
-                <form onMouseUp={handleRatingChange} className="rating rating-md">
+                <form onMouseUp={handleRatingChange} className="rating rating-lg rating-half">
                     <input type="radio" value="1" name="rating-4" className="mask mask-star-2 bg-green-500" />
                     <input type="radio" value="2" name="rating-4" className="mask mask-star-2 bg-green-500" />
                     <input type="radio" value="3" name="rating-4" className="mask mask-star-2 bg-green-500" />
