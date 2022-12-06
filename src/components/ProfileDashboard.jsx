@@ -197,7 +197,9 @@ const ProfileDashboard = () => {
               }
             </div>
 
+
             <div className="h-96 md:w-1/3 p-4 ">
+
               {
                 // filter for pin where value for _id is equal to actualPin and return index of the object
                 allPins.data

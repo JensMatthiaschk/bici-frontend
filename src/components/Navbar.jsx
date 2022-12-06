@@ -29,7 +29,7 @@ export default function Navbar() {
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">Bici</a>
             </div>
-            {window.location.pathname === '/map' ? <NavbarMap /> : <div>"profile"</div>}
+            {window.location.pathname === '/map' ? <NavbarMap /> : <NavLink to="/map" >"profile"</NavLink >}
 
             <div className="flex-none gap-2">
                 <div className="dropdown dropdown-end">
