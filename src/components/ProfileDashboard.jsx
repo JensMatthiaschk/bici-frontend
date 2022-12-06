@@ -181,7 +181,7 @@ const ProfileDashboard = () => {
 
                                 <th className="px-4">
                                   <button
-                                    onClick={() => {}}
+                                    onClick={() => { }}
                                     className="btn btn-alert  btn-xs"
                                   >
                                     report
