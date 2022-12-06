@@ -18,6 +18,7 @@ export async function action({ request }) {
         formInput.avatar_img && data.append("avatar_img", formInput.avatar_img)
         console.log("DATA", data)
         const updatedUserData = await updateUser(data);
+        location.reload()
         // console.log("updatedUserData", updatedUserData)
     } catch (error) {
         console.error(error);

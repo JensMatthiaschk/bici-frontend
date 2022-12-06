@@ -13,6 +13,7 @@ import Profile, { loader as profileDataLoader } from './routes/Profile'
 import ProfileForm from './routes/ProfileForm.jsx'
 //import { action as mapAction } from './components/MapForm.jsx'
 import MapContextProvider from './components/mapContext'
+import UserDataContextProvider from './components/userContext'
 
 
 const router = createBrowserRouter([
@@ -52,7 +53,9 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <MapContextProvider>
-    <RouterProvider router={router} />
-  </MapContextProvider>
+  <UserDataContextProvider>
+    <MapContextProvider>
+      <RouterProvider router={router} />
+    </MapContextProvider>
+  </UserDataContextProvider >
 )

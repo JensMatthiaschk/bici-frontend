@@ -48,7 +48,7 @@ export const verifier = async () => {
         const data = await res.json()
         // console.log('>>>>>>>>', data)
 
-        return data.success;
+        return data;
     } catch (err) {
 
         if (err) console.log('invalid token')
