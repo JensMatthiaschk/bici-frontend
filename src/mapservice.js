@@ -27,7 +27,7 @@ export const postPin = async (data) => {
 
 export const postMapComment = async (data) => {
     const token = JSON.parse(localStorage.getItem("user-jwt"));
-    fetch(import.meta.env.VITE_AUTH_API + "/comment", {
+    return fetch(import.meta.env.VITE_AUTH_API + "/comment", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -64,6 +64,7 @@ export const getMapComments = async (data) => {
     })
     if (!res.ok) {
         const responseError = await res.json()
+        console.log("no Comments found")
         return responseError.message
 
     } else {
