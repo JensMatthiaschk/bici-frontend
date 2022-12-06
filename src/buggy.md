@@ -1,5 +1,3 @@
 -[] close modal requiered
 
--[ ] location dosent exist pin drop]
-
--[ ] reapir
+-[] have location written name in Pin.
