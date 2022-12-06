@@ -33,11 +33,14 @@ const PinComments = (props) => {
         catch (err) { console.log(err) }
     }
 
-    useEffect(() => {
-        const data = { pinId }
-        const comments = getMapComments(data).then(data => setCommentData(data.data))
-    }, [pinId])
 
+    useEffect(() => {
+        const data = { pinId };
+        console.log("pin_id3", data);
+        const comments = getMapComments(data).then((data) =>
+            setCommentData(data.data)
+        );
+    }, [pinId]);
 
     return (
         <>
@@ -84,18 +87,25 @@ const PinComments = (props) => {
             </div>
 
             {/* //FORM */}
-            <form method='GET' onSubmit={handleSubmit} action='/comment'>
+            <form method="GET" onSubmit={handleSubmit} action="/comment">
                 <div className="form-control">
-                    <textarea type="text" name="comment"
-                        className="textarea textarea-bordered h-24 w-full mb-0" placeholder="your comment here, be nice an precice! ">
-                    </textarea>
+                    <textarea
+                        type="text"
+                        name="comment"
+                        value={input}
+                        onChange={handleChange}
+                        className="textarea textarea-bordered h-24 w-full mb-0"
+                        placeholder="your comment here, be nice an precice! "
+                    ></textarea>
                     <div className="modal-action">
-                        <button className="btn btn-sm w-24" type="submit">comment</button>
+                        <button className="btn btn-sm w-24" type="submit">
+                            comment
+                        </button>
                     </div>
                 </div>
-            </form >
+            </form>
         </>
-    )
-}
+    );
+};
 
-export default PinComments
+export default PinComments;

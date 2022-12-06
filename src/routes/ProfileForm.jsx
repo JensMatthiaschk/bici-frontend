@@ -50,20 +50,20 @@ const ProfileForm = () => {
                                 id="nickname"
                             //defaultValue="asd"
                             />
-                            <label htmlFor="address">address</label>
+                            <label htmlFor="address">Postleitzahl/PostalCode</label>
                             <input className="input input-bordered w-full max-w-xs"
-                                type="text"
+                                type="number"
+                                placeholder="write at least your Postleitzahl so you can find riders in your area"
                                 name="address"
-                                autoComplete="address"
+
                                 id="address"
                             //defaultValue="asd@asd.com"
                             />
-                            {/* {actionData?.error ? (
-                                <p style={{ color: "red" }}>{actionData.error}</p>
-                            ) : null} */}
+
                             <label htmlFor="description">description</label>
                             <textarea className="input input-bordered h-32 w-full max-w-xs"
                                 type="text"
+                                placeholder="Describe your Riding Style and what are your here for?"
                                 name="description"
                                 id="description"
                                 //defaultValue="asd"
@@ -71,17 +71,19 @@ const ProfileForm = () => {
                                 onInvalid={() => "Please enter minium 5 chracters"}
                             />
                             <label htmlFor="bikeType">bike type</label>
+
                             <input className="input input-bordered w-full max-w-xs"
                                 type="text"
                                 name="bikeType"
                                 id="bikeType"
-                            //defaultValue="asd"
+                                placeholder="MTB? Road? Gravel? E-Bike? Travel?"
                             />
-                            <label htmlFor="cell">cell</label>
-                            <input className="input input-bordered w-full max-w-xs"
+                            <label className="mb-0" htmlFor="cell">PhoneNumber</label>
+                            <input className="input mt-0 input-bordered w-full max-w-xs"
                                 type="text"
                                 name="cell"
                                 id="cell"
+                                placeholder="it will not be public"
                                 //required
                                 //defaultValue="asd"
                                 minLength={5}

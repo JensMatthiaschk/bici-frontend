@@ -29,96 +29,93 @@ const Landing = () => {
         </div>
 
 
-        <div className="carousel w-full" style={{ height: "80vh " }}>
+        <div className="carousel w-screen h-screen" /* style={{ height: "80vh " }} */>
             <div id="slide1" className="flex carousel-item relative w-full  bg-cover bg-center " style={{ 'backgroundImage': `url("http://cdn2.cyclist.co.uk/sites/cyclist/files/2017/01/st0040420.jpg")` }}>
                 <div className="hero-overlay bg-opacity-40  ">
-                    <div className="pt-60	 text-center text-neutral-content">
-                        <div className="fmax-w-md">
+                    <div className="flex h-screen text-center items-center pb-32 sm:items-center pb-20 ">
+                        <div className="w-full">
                             <h2 className="mb-5 text-5xl font-bold text-yellow-50">Hello Rider</h2>
-                            <h3 className="mb-5 text-yellow-50">"Sign Up for free and prepare your self for the best bike expirience"</h3>
+                            <h3 className="mb-5 text-3xl text-yellow-50">"Sign Up for free and prepare your self for the best bike expirience"</h3>
                             {/* The button to open modal */}
-                            <label htmlFor="my-modal-6" className="btn btn-warning">Sing Up </label>
-
-
+                            <label htmlFor="my-modal-6" className="btn">Sign Up</label>
                         </div>
                     </div>
                 </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide4" className="btn btn-circle">❮</a>
-                    <a href="#slide2" className="btn btn-circle">❯</a>
+                    <a href="#slide4" className="btn btn-ghost">❮</a>
+                    <a href="#slide2" className="btn btn-ghost">❯</a>
                 </div>
             </div>
-            <div id="slide2" className="carousel-item relative w-full" style={{ 'backgroundImage': 'linear-gradient(rgba(0, 0, 255, 0.4), rgba(0, 0, 285, 0.2)), url("https://acrediteounao.com/wp-content/uploads/2016/12/mapa.jpg")', }} >
+            <div id="slide2" className="carousel-item relative w-full bg-cover bg-center " style={{ 'backgroundImage': 'url("src/assets/pexels-pavel-danilyuk-5807805.jpg")' }}>
+                <div className="hero-overlay"   >
+                    <div className="flex h-screen text-center items-end pt-32 sm:items-center pb-20">
+                        <div className='w-full'>
+                            <h2 className="mb-5 text-5xl font-bold text-yellow-50">Chat with other Riders</h2>
+                            <h3 className="mb-5  text-2xl text-yellow-50">Make contact with other users and  chat about the places you have visit</h3>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide1" className="btn btn-circle">❮</a>
-                    <a href="#slide3" className="btn btn-circle">❯</a>
+                    <a href="#slide1" className="btn btn-ghost">❮</a>
+                    <a href="#slide3" className="btn btn-ghost">❯</a>
                 </div>
             </div>
-            <div id="slide3" className="carousel-item relative w-full">
-                <img src="https://placeimg.com/800/200/arch" className="w-full" />
+            <div id="slide3" className="carousel-item relative w-full	 bg-cover bg-center " style={{ 'backgroundImage': `url("src/assets/image.png")` }} >
+                <div className="hero-overlay bg-opacity-40  "   >
+                    <div className="flex h-screen text-center items-center pb-20 sm: px-10 ">
+                        <div className='w-full '>
+                            <h2 className="mb-5 text-5xl font-bold text-yellow-50"> Find points of interest</h2>
+                            <h3 className="mb-5 text-2xl text-yellow-50">  "Search in our Map where zou can filter and find where will you sleep next night,take showers, go swimming and repaire stations" </h3>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide2" className="btn btn-circle">❮</a>
-                    <a href="#slide4" className="btn btn-circle">❯</a>
+                    <a href="#slide2" className="btn btn-ghost">❮</a>
+                    <a href="#slide4" className="btn btn-ghost">❯</a>
                 </div>
             </div>
-            <div id="slide4" className="carousel-item relative w-full">
-                <img src="https://placeimg.com/800/200/arch" className="w-full" />
+            <div id="slide4" className="carousel-item relative w-full bg-cover bg-center " style={{ 'backgroundImage': 'linear-gradient(rgba(0, 0, 255, 0.4), rgba(0, 0, 285, 0.2)), url("https://acrediteounao.com/wp-content/uploads/2016/12/mapa.jpg")', }}>
+                <div className="hero-overlay"   >
+                    <div className="flex h-screen text-center items-center pt-20 sm: px-10  ">
+                        <div className='w-full'>
+                            <h2 className="mb-5 text-5xl font-bold text-yellow-50">Share your ride and find a partner</h2>
+                            <h3 className="mb-5 text-3xl text-yellow-50">Post where you going share your ride and find partners to ride with</h3>
+                        </div>
+                    </div>
+                </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide3" className="btn btn-circle">❮</a>
-                    <a href="#slide1" className="btn btn-circle">❯</a>
+                    <a href="#slide3" className="btn btn-ghost">❮</a>
+                    <a href="#slide1" className="btn btn-ghost">❯</a>
                 </div>
             </div>
         </div>
 
-        <div className=' flex flex-row  place-content-evenly py-14'>
-            <div className="card w-96 shadow-xl" style={{ 'backgroundImage': 'url("http://roadandmountainbikereviews.co.uk/wp-content/uploads/2019/04/Focus-O1EL-SL.jpg")' }} >
-                <div className="card-body">
-                    <h2 className="card-title">Share your ride and find a partner</h2>
-                    <p>Post where you going and chat with other riders to share your trip</p>
-                    <div className="card-actions justify-end">
-                    </div>
-                </div>
-            </div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="card-title">Find points of interest</h2>
-                    <p>search in our Map shere will you sleep next night, where to take showers or even go swimming </p>
-                    <div className="card-actions justify-end">
-                    </div>
-                </div>
-            </div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="card-title">Chat with other Riders</h2>
-                    <p>Make contact with other Riders and with chat about the places you've visit</p>
-                    <div className="card-actions justify-end">
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
 
         {/* Put this part before </body> tag */}
         <input type="checkbox" id="my-modal-6" className="modal-toggle" />
-        <div className="modal modal-bottom sm:modal-middle">
-            <div className="modal-box">
+        <label htmlFor="my-modal-6" className="modal modal-bottom sm:modal-middle">
+            <label className="modal-box" htmlFor="">
                 <h3 className="font-bold text-lg">Please SignUp!</h3>
                 <Register />
                 <div className="modal-action">
                     <label htmlFor="my-modal-6" className="btn">Close</label>
                 </div>
-            </div>
-        </div>
+            </label>
+        </label>
         <input type="checkbox" id="my-modal-5" className="modal-toggle" />
-        <div className="modal modal-bottom sm:modal-middle">
-            <div className="modal-box">
+        <label htmlFor="my-modal-5" className="modal modal-bottom sm:modal-middle">
+            <label className="modal-box" htmlFor="">
                 <h3 className="font-bold text-lg">Please Login</h3>
                 <Login />
                 <div className="modal-action">
                     <label htmlFor="my-modal-5" className="btn">Close</label>
                 </div>
-            </div>
-        </div>
+            </label>
+        </label>
 
 
 
