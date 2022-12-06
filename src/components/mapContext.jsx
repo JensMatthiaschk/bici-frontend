@@ -9,6 +9,8 @@ const MapContextProvider = (props) => {
     const [bounds, setBounds] = useState([])
     const [mapPins, setMapPins] = useState([])
     const [pinId, setPinId] = useState('')
+    const [commentData, setCommentData] = useState();
+    const [pinRatings, setPinRatings] = useState()
 
     const [filter, setFilter] = useState({
         camping: true,
@@ -28,7 +30,9 @@ const MapContextProvider = (props) => {
             searchToggle, setSearchToggle,
             bounds, setBounds,
             mapPins, setMapPins,
-            pinId, setPinId
+            pinId, setPinId,
+            commentData, setCommentData,
+            pinRatings, setPinRatings
         }}>
             {props.children}
         </MapContext.Provider>
