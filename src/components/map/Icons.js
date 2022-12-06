@@ -53,9 +53,9 @@ const eventIcon = L.icon({
   popupAnchor: [-10, -50]
 })
 const defaultIcon = L.icon({
-  iconUrl: 'src/assets/blue.png',
-  iconSize: [50, 50],
-  iconAnchor: [42, 64],
+  iconUrl: 'src/assets/serviceIcons/BicycleMarkerSymbol_flag.png',
+  iconSize: [30 + 17, 50 + 17],
+  iconAnchor: [15, 55],
   popupAnchor: [-10, -50]
 })
 const blue = L.icon({

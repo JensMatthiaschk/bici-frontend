@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import { getProfileData, verifier } from '../authservice'
 import Navbar from '../components/Navbar'
+import ProfileDashboard from '../components/ProfileDashboard'
 import ProfileForm from './ProfileForm'
 
 export async function loader() {
@@ -81,6 +82,9 @@ export const Profile = () => {
                 <ProfileForm />
             </>
         }
+        <div className='flex justify-center place-content-around'>
+            <ProfileDashboard />
+        </div>
     </>
     )
 

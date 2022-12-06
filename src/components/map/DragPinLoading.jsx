@@ -47,7 +47,7 @@ export default function DragPinLoading() {
     else if (pin.camping) return redish
     else if (pin.host) return purple
     else if (pin.repair) return orange
-    else if (pin.shower) return lightblue
+    else if (pin.shower) return green
     else if (pin.swim) return blue
     else if (pin.events) return yellow
     else return white

@@ -127,8 +127,8 @@ export const getProfileData = async (data) => {
     }
 };
 
+/* 
 
-<<<<<<< HEAD
 export const getCommentData = async (data) => {
     const token = JSON.parse(localStorage.getItem("user-jwt"));
     if (!token) {
@@ -137,10 +137,10 @@ export const getCommentData = async (data) => {
     const res = await fetch(import.meta.env.VITE_AUTH_API + '/comment/get', {
 
         method: "POST",
-        /* headers: {
+        headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
-        }, */
+        },
         body: JSON.stringify(data),
         mode: "cors"
     })
@@ -156,5 +156,5 @@ export const getCommentData = async (data) => {
         return responseData
     }
 };
-=======
->>>>>>> f179ec4c5059f2e1af26a6afe5ea4f00a454e689
+
+ */
