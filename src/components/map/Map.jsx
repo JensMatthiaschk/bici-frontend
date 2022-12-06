@@ -31,20 +31,6 @@ function Map() {
     console.log("><<<>>>>>>>", searchedMarkers);
   }, [searchedMarkers]);
 
-  // console.log("Comments arrived", commentData)
-
-  /* function DragPinLoadingComponent() {
-    const map = useMapEvents({
-      moveend: (e) => {
-
-          console.log(e.target.getBounds())
-
-
-        },
-      })
-      return null
-    }
-   */
   return (
     <div className="Map">
       <div className="drawer">

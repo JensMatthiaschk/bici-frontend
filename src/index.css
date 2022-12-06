@@ -12,7 +12,6 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
-
 input[type="radio"] {
     display: none
 }
