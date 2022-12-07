@@ -76,7 +76,7 @@ export const getMapComments = async (data) => {
 
 export const postRating = async (data) => {
     const token = JSON.parse(localStorage.getItem("user-jwt"));
-    fetch(import.meta.env.VITE_AUTH_API + "/rating", {
+    return fetch(import.meta.env.VITE_AUTH_API + "/rating", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

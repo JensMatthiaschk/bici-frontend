@@ -42,7 +42,7 @@ const PinComments = (props) => {
     }, [pinId]);
 
     return (
-        <>
+        <div className="p-4">
             <h3>Comments</h3>
             <div className="flex flex-col w-full mb-4 mt-4">
                 {commentData &&
@@ -107,8 +107,8 @@ const PinComments = (props) => {
 
             {/* //FORM */}
             <div>
-                <h3>Share your experience:</h3>
-                <div className="flex w-full h-12 justify-end relative bottom-5 right-4">
+                <h3 className="relative top-2">Share your experience:</h3>
+                <div className="flex w-full h-12 justify-end relative bottom-6 right-4">
                     {userProfileData?.avatar_img.aws_url ? (
                         <img
                             src={`${userProfileData?.avatar_img.aws_url}`}
@@ -124,7 +124,7 @@ const PinComments = (props) => {
                     )}
                 </div>
                 {/* <PinRating /> */}
-                <form method="GET" onSubmit={handleSubmit} action="/comment" className="mt-0">
+                <form method="GET" onSubmit={handleSubmit} action="/comment">
                     <div className="form-control">
                         <textarea
                             type="text"
@@ -140,7 +140,7 @@ const PinComments = (props) => {
                     </div>
                 </form>
             </div>
-        </>
+        </div>
     );
 };
 

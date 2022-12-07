@@ -1,10 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { getProfileData, verifier } from '../authservice';
 
-
 export const UserContext = createContext();
-
-
 
 const UserDataContextProvider = (props) => {
     const [userData, setUserData] = useState();

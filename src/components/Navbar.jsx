@@ -5,10 +5,12 @@ import { clearToken } from '../authservice'
 import { useContext } from 'react';
 import { MapContext } from './mapContext'
 import NavbarMap from './NavbarMap';
+import { UserContext } from './userContext';
 
 export default function Navbar() {
 
-    const { filter, setFilter } = useContext(MapContext)
+    const { filter, setFilter, user } = useContext(MapContext)
+    const { userProfileData, setUserProfileData } = useContext(UserContext);
 
     //add array to filter   
 
@@ -25,17 +27,20 @@ export default function Navbar() {
 
 
     return (
-        <div className="navbar bg-base-100 flex justify-center">
+        <div className="navbar bg-transparent flex justify-center fixed z-50">
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">Bici</a>
             </div>
-            {window.location.pathname === '/map' ? <NavbarMap /> : <NavLink to="/map" >"profile"</NavLink >}
+            {window.location.pathname === '/map' ? <NavbarMap /> : <NavLink to="/map" ></NavLink >}
 
             <div className="flex-none gap-2">
-                <div className="dropdown dropdown-end">
+                <div className="dropdown dropdown-end ml-2">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-14 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" />
+                            {userProfileData ?
+                                <img src={`${userProfileData.avatar_img?.aws_url ? userProfileData.avatar_img.aws_url : ""}`} /> :
+                                <img src="https://placeimg.com/80/80/people" />
+                            }
                         </div>
                     </label>
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

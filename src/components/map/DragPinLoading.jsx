@@ -63,14 +63,26 @@ export default function DragPinLoading() {
     else if (pin.host) return filter.host
     else if (pin.repair) return filter.repair
     else if (pin.shower) return filter.shower
-
     else if (pin.swim) return filter.swim
     else if (pin.events) return filter.events
     else return false
 
   })
 
-
+  const Images = [
+    {
+      avatar_img: "https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png"
+    },
+    {
+      avatar_img: "https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png"
+    },
+    {
+      avatar_img: "https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png"
+    },
+    {
+      avatar_img: "https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png"
+    }
+  ]
 
   console.log('filteredPins', filteredPins)
 
@@ -82,15 +94,38 @@ export default function DragPinLoading() {
     {
       filteredPins.map((pin) =>
         <Marker key={pin._id} position={geoToObj(pin.location.coordinates)} icon={markerColor(pin)}>
-          <Popup autoPan={true}>
+          <Popup autoPan={true} className="p-0 m-0">
 
-            <figure><img src="https://placeimg.com/400/225/arch" alt="Album" /></figure>
+            <div className="w-56 h-52 rounded-xl overflow-hidden">
+              <div className="carousel w-full h-32">
+                {Images.map((img, i) => {
+                  const count = i + 1
+                  return (
+                    <div id={"popUpSlide" + `${count}`}
+                      style={{
+                        "background-image": `url("https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png")`,
+                        "background-repeat": "no-repeat",
+                        "background-size": "cover",
+                      }}
+                      className="carousel-item relative w-full">
+                      <div className="absolute flex justify-between transform -translate-y-1/2 left-1 right-1 top-1/2">
+                        <a href={"#popUpSlide" + `${count - 1}`} className="btn btn-circle bg-indigo-200/30 hover:bg-indigo-500/30 border-0 w-3 font-extralight">❮</a>
+                        <a href={"#popUpSlide" + `${count + 1}`} className="btn btn-circle bg-indigo-200/30 hover:bg-indigo-500/30 border-0 w-3 font-extralight">❯</a>
+                      </div>
+                    </div >
+                  )
+                })}
+              </div >
 
-            <h2 className="card-title"></h2>
-            <p>{pin.description}</p>
+              <div className="w-full h-6 px-4 py-5">
+                <p className="m-0 h-6">{pin.description}</p>
+              </div>
 
-            {/* <label htmlFor="my-drawer1" className="btn btn-primary drawer-button">1Open drawer</label> */}
-            <button className="btn" onClick={() => setPinId(pin._id)}><label htmlFor="my-drawer" className="btn btn-primary drawer-button">Open drawer</label></button>
+              {/* <label htmlFor="my-drawer1" className="btn btn-primary drawer-button">1Open drawer</label> */}
+              <div className="flex justify-end relative right-2">
+                <label htmlFor="my-drawer" className="btn btn-sm drawer-button bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 border-0" onClick={() => setPinId(pin._id)}>More Info</label>
+              </div>
+            </div>
           </Popup>
 
         </Marker>
@@ -107,3 +142,25 @@ export default function DragPinLoading() {
 
 
 }
+
+
+
+// <div className="carousel w-full h-60 mb-10">
+//   {Images.map((img, i) => {
+//     const count = i + 1
+//     return (
+//       <div id={"slide" + `${count}`}
+//         style={{
+//           "background-image": `url("https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png")`,
+//           "background- repeat": "no-repeat",
+//           "background-size": "contain",
+//         }}
+//         className="carousel-item relative w-full">
+//         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+//           <a href={"#slide" + `${count - 1}`} className="btn btn-circle w-8 h-4 p-0">❮</a>
+//           <a href={"#slide" + `${count + 1}`} className="btn btn-circle w-8 h-4 p-0">❯</a>
+//         </div>
+//       </div >
+//     )
+//   })}
+// </div >
