@@ -30,7 +30,7 @@ export default function Navbar() {
         <NavLink to="/map">
           {" "}
           <div className="flex-1">
-            <a className="btn glass normal-case text-lg">Map</a>
+            <a className="btn glass text-black normal-case text-lg">Map</a>
           </div>
         </NavLink>
       )}
@@ -57,7 +57,7 @@ export default function Navbar() {
           >
             <li>
               {window.location.pathname === "/map" ? (
-                <NavLink to="../profile">Logout</NavLink>
+                <NavLink to="../profile">Profile</NavLink>
               ) : (
                 <label htmlFor="ProfileForm">Edit Profile</label>
               )}
