@@ -9,12 +9,12 @@ const ProfileDashboard = () => {
   const [com, setCom] = useState(false);
   const [commentData, setCommentData] = useState([]);
   const filterColor = {
-    camping: " bg-red-800",
+    camping: "text-white bg-red-800",
     events: " bg-yellow-400",
-    host: " bg-fuchsia-800",
+    host: "text-white bg-fuchsia-800",
     repair: " bg-amber-500",
-    shower: " bg-emerald-600",
-    swim: " bg-blue-700",
+    shower: "text-white bg-emerald-600",
+    swim: "text-white bg-blue-700",
   };
 
   useEffect(() => {
@@ -135,7 +135,11 @@ const ProfileDashboard = () => {
                                               href="#"
                                               className="hover:underline text-sm"
                                             >
-                                              <small> {e.user.name}</small>
+                                              <small>
+                                                {e.userprofile?.nickname
+                                                  ? e.userprofile.nickname
+                                                  : e.user.name}
+                                              </small>
                                             </a>
                                           </div>
                                           <div className="text-xs w-full">
@@ -197,9 +201,7 @@ const ProfileDashboard = () => {
               }
             </div>
 
-
             <div className="h-96 md:w-1/3 p-4 ">
-
               {
                 // filter for pin where value for _id is equal to actualPin and return index of the object
                 allPins.data
@@ -214,16 +216,17 @@ const ProfileDashboard = () => {
                           <div className="justify-center">
                             <div className=" flex justify-between space-between  flex-row min-w-96">
                               <p className="underline">Pin Details</p>
+
                               <button
                                 onClick={() => setCom(!com)}
-                                className="btn btn-primary btn-xs"
+                                className="btn btn-primary btn-xs  "
                               >
                                 {!com ? "Comments" : "All Pins"}
                               </button>
                             </div>
                             <div className="flex justify-center w-full">
                               <img
-                                className="flex justify-center scale"
+                                className="flex justify-center scale py-2"
                                 src={
                                   pin.pin_imgs[0]
                                     ? pin.pin_imgs[0].aws_url
@@ -251,20 +254,6 @@ const ProfileDashboard = () => {
               }
             </div>
           </div>
-
-          {/* <div className="card lg:card-side bg-base-100 shadow-xl">
-                 <figure><img src="https://placeimg.com/400/400/arch" alt="Album" /></figure>
-                 <div className="card-body">
-                     <h2 className="card-title">New album is released!</h2>
-                     <p>Click the button to listen on Spotiwhy app.</p>
-                     <div className="card-actions justify-end">
-                         <button className="btn btn-primary">Listen</button>
-                     </div>
-                 </div>
-             </div> 
- 
- 
-  */}
         </div>
       </>
     );
