@@ -4,14 +4,62 @@
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* For IE, Edge and Firefox */
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 input[type="radio"] {
-    display: none
+  display: none;
 }
+
+/* .fixed-bg {
+  z-index: -1;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+   transform: skewX(-20deg); 
+
+  transform: perspective(200px) rotateX(20deg);
+  background-repeat: no-repeat;
+   background-size: cover; 
+  width: 100%;
+
+  background-position: 70%;
+   filter: grayscale(100%); 
+   add transparent gradient on top 
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 255, 255, 0.421)
+  );
+  url("/profile-bg.jpg"); 
+     animation: rotatex 3s linear infinite; 
+  animation: skewRotate 3s linear infinite; 
+   scale it 
+}
+
+@keyframes skewRotate {
+  0% {
+    rotatex animated over 3 seconds 
+    transform: scale(1.1) skewX(-20deg);
+  }
+  100% {
+    transform: scale(1.1) skewX(20deg);
+  }
+}
+@keyframes rotatex {
+  0% {
+    transform: perspective(200px) rotateX(0deg);
+  }
+  100% {
+    transform: perspective(200px) rotateX(360deg);
+  }
+} */
