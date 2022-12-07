@@ -15,10 +15,8 @@ export const postPin = async (data) => {
         .then((response) => response.json())
         .then((data) => {
             if (data.success) {
-                console.log(data.message)
                 return data
             } else {
-                console.log(data)
                 alert(data.message);
             }
         });
