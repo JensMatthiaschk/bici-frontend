@@ -9,8 +9,8 @@ const MapContextProvider = (props) => {
     const [bounds, setBounds] = useState([])
     const [mapPins, setMapPins] = useState([])
     const [pinId, setPinId] = useState('')
-    const [commentData, setCommentData] = useState();
-    const [pinRatings, setPinRatings] = useState()
+    const [commentData, setCommentData] = useState([]);
+    const [pinRatings, setPinRatings] = useState([])
 
     const [filter, setFilter] = useState({
         camping: true,

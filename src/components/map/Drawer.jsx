@@ -10,7 +10,11 @@ import { useEffect } from "react"
 
 export const Drawer = () => {
     const { pinId, setPinId, pinRatings } = useContext(MapContext)
-    const [ratingInput, setRatingInput] = useState(0)
+    const [ratingInput, setRatingInput] = useState([])
+    const [averageRating, setAverageRating] = useState(4)
+    const [totalRating, setTotalratings] = useState()
+
+
     const Images = [
         {
             avatar_img: "https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png"
@@ -34,6 +38,24 @@ export const Drawer = () => {
         }
         console.log("pinRatings", pinRatings)
     }, [pinId])
+
+    useEffect(() => {
+        if (pinRatings) {
+            pinRatings.map((e) =>
+                setRatingInput([...pinRatings, e.ratingValue])
+            )
+            const total = pinRatings.length
+            setTotalratings(total)
+            console.log("TOTAL", total)
+            const initialValue = 0;
+            console.log("ratingInput", ratingInput)
+            const average = ratingInput.reduce((a, b) => a + b, initialValue)
+            // setAverageRating(average)
+            console.log("averageRating", average)
+        }
+    }, [pinRatings])
+
+    console.log("pinRatings", pinRatings)
 
     return (
 
@@ -64,51 +86,49 @@ export const Drawer = () => {
 
 
                 {/* Rating Average */}
-                <div className="flex relative bottom-4 items-center p-4">
-                    <br />
-                    <p className="pr-2">3.8</p>
-                    {/* ratingInput ?
-                        <>
-                            [...Array(5)].map((star, i) => {
+                <>
+                    <div className="flex relative bottom-4 items-center p-4">
+                        <br />
+                        {pinRatings[0]?.ratingValue ? <p className="pr-2">{pinRatings[0].ratingValue}</p> : <p className="pr-2">0.0</p>}
+                        {[...Array(5)].map((star, i) => {
                             const ratingValueCurrent = i + 1
-                    return (
-                    <label>
-                        <input
-                            name="rating"
-                            type="radio"
-                            value={ratingValueCurrent}
-                        />
-                        <FaStar
-                            className="star"
-                            color={ratingValueCurrent <= (ratingInput) ? "rgb(251, 146, 60)" : "grey"}
-                            size={30}
-                        />
-                    </label>
-                    )
+                            if (pinRatings) {
+                                return (
+                                    <label>
+                                        <input
+                                            name="rating"
+                                            type="radio"
+                                            value={ratingValueCurrent}
+                                        />
+                                        <FaStar
+                                            className="star"
+                                            color={ratingValueCurrent <= (averageRating) ? "rgb(251, 146, 60)" : "grey"}
+                                            size={30}
+                                        />
+                                    </label>
+                                )
+                            } else {
+                                return (
+                                    <label>
+                                        <input
+                                            name="rating"
+                                            type="radio"
+                                            value={"0"}
+                                        />
+                                        <FaStar
+                                            className="star"
+                                            color={"grey"}
+                                            size={30}
+                                        />
+                                    </label>
+                                )
+                            }
                         })
-                </> :
-                    <>
-                        [...Array(5)].map((star, i) => {
-                            const ratingValueCurrent = i + 1
-                            return (
-                                <label>
-                                    <input
-                                        name="rating"
-                                        type="radio"
-                                        value={"0"}
-                                    />
-                                    <FaStar
-                                        className="star"
-                                        color={"grey"}
-                                        size={30}
-                                    />
-                                </label>
-                            )
-                        })
-                    </>
-                     */}
-                    <p className="pl-2">(10)</p>
-                </div >
+                        }
+                        {pinRatings[0]?.ratingValue ? <p className="pr-2">({pinRatings[0].ratingValue})</p> : <p className="pr-2">(0)</p>}
+                    </div >
+                </>
+
                 {/* User Input */}
                 <PinComments pin={pinId} />
                 <PinRating />
