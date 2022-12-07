@@ -14,7 +14,7 @@ import Register from './Register'
 const Landing = () => {
     return (<>
 
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-transparent fixed z-50">
             <div className="navbar-start">
                 <div className="avatar">
                     <div className="w-24 h-12 rounded-full">
@@ -46,7 +46,7 @@ const Landing = () => {
                     <a href="#slide2" className="btn btn-ghost">❯</a>
                 </div>
             </div>
-            <div id="slide2" className="carousel-item relative w-full bg-cover bg-center " style={{ 'backgroundImage': 'url("src/assets/pexels-pavel-danilyuk-5807805.jpg")' }}>
+            <div id="slide2" className="carousel-item relative w-full bg-cover bg-center " style={{ 'backgroundImage': 'url("assets/pexels-pavel-danilyuk-5807805.jpg")' }}>
                 <div className="hero-overlay"   >
                     <div className="flex h-screen text-center items-end pt-32 sm:items-center pb-20">
                         <div className='w-full'>
@@ -61,7 +61,7 @@ const Landing = () => {
                     <a href="#slide3" className="btn btn-ghost">❯</a>
                 </div>
             </div>
-            <div id="slide3" className="carousel-item relative w-full	 bg-cover bg-center " style={{ 'backgroundImage': `url("src/assets/image.png")` }} >
+            <div id="slide3" className="carousel-item relative w-full	 bg-cover bg-center " style={{ 'backgroundImage': `url("assets/image.png")` }} >
                 <div className="hero-overlay bg-opacity-40  "   >
                     <div className="flex h-screen text-center items-center pb-20 sm: px-10 ">
                         <div className='w-full '>
