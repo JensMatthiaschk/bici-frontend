@@ -20,7 +20,6 @@ const NavbarMap = () => {
   return (
     <div className="border-2 border-black rounded-xl text-center">
       {Object.keys(filter).map((key, fc) => {
-        console.log(key, filter[key], filterCK[fc]);
         return (
           <label
             key={key}

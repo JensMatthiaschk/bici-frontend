@@ -201,57 +201,70 @@ const ProfileDashboard = () => {
               }
             </div>
 
-            <div className="h-96 md:w-1/3 p-4 ">
-              {
-                // filter for pin where value for _id is equal to actualPin and return index of the object
-                allPins.data
-                  .filter((pin) => pin._id === actualPin)
-                  .map((pin, index) => {
-                    return (
-                      <>
-                        <div
-                          key={index}
-                          className="flex columns-1 items-center"
-                        >
-                          <div className="justify-center">
-                            <div className=" flex justify-between space-between  flex-row min-w-96">
-                              <p className="underline">Pin Details</p>
+            <div className="h-96 md:w-1/3 p-4 overflow-x-auto overflow-scroll ">
+              {allPins.data
+                .filter((pin) => pin._id === actualPin)
+                .map((pin, index) => {
+                  return (
+                    <>
+                      <div key={index} className="flex columns-1 items-center">
+                        <div className="justify-center">
+                          <div className=" flex justify-between space-between  flex-row min-w-96">
+                            <p className="underline">Pin Details</p>
 
-                              <button
-                                onClick={() => setCom(!com)}
-                                className="btn btn-primary btn-xs  "
-                              >
-                                {!com ? "Comments" : "All Pins"}
-                              </button>
-                            </div>
-                            <div className="flex justify-center w-full">
-                              <img
-                                className="flex justify-center scale py-2"
-                                src={
-                                  pin.pin_imgs[0]
-                                    ? pin.pin_imgs[0].aws_url
-                                    : "https://placeimg.com/250/250/arch"
-                                }
-                                alt="Album"
-                              />
-                            </div>
+                            <button
+                              onClick={() => setCom(!com)}
+                              className="btn btn-primary btn-xs  "
+                            >
+                              {!com ? "Comments" : "All Pins"}
+                            </button>
+                          </div>
+                          <div className="flex justify-center w-full">
+                            <img
+                              className="flex justify-center scale py-2"
+                              src={
+                                pin.pin_imgs[0]
+                                  ? pin.pin_imgs[0].aws_url
+                                  : "https://placeimg.com/250/250/arch"
+                              }
+                              alt="Album"
+                            />
+                          </div>
 
-                            <h2 className="card-title text-center">
-                              {pin.title}
-                            </h2>
+                          <h2 className="card-title text-center">
+                            {pin.title}
+                          </h2>
+                          <div>
+                            {
+                              //filter for pin where value is true and return the key of the object
+                              Object.keys(pin)
+                                .filter((key) => pin[key] === true)
+                                .map((key) => {
+                                  return (
+                                    <span
+                                      className={`badge badge-ghost badge-sm flex-col ${filterColor[key]}`}
+                                    >
+                                      {key}
+                                    </span>
+                                  );
+                                })
+                            }
+                          </div>
 
-                            <p>{pin.description}</p>
-                            <p>
-                              Latitude{pin.location.coordinates[0]}, Longitude
-                              {pin.location.coordinates[1]}
-                            </p>
-                            <p>{pin.location.type}</p>
+                          <p>{pin.description}</p>
+                          <p>
+                            Latitude{pin.location.coordinates[0]}, Longitude
+                            {pin.location.coordinates[1]}
+                          </p>
+                          <div className="flex justify-around ">
+                            <button className="btn btn-sm text-lg ">🖊</button>
+                            <button className="btn btn-sm text-lg">🗑</button>
                           </div>
                         </div>
-                      </>
-                    );
-                  })
-              }
+                      </div>
+                    </>
+                  );
+                })}
             </div>
           </div>
         </div>
