@@ -38,7 +38,7 @@ function Map() {
         <div className="drawer-content">
           <MapContainer
             center={[52.45724827787064, 13.540072899999998]}
-            zoom={12}
+            zoom={10}
             scrollWheelZoom={true}
             style={{ width: "100vw", height: "100vh" }}
           >

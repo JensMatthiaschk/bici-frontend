@@ -7,8 +7,8 @@ const foundPin = L.icon({
 const myIcon = L.icon({
   iconUrl: "assets/locationIcon.png",
   iconSize: [50, 50],
-  iconAnchor: [42, 64],
-  popupAnchor: [-10, -50],
+  iconAnchor: [28, 64],
+  popupAnchor: [-15, -70],
 });
 
 const campIcon = L.icon({
