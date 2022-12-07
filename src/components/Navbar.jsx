@@ -34,7 +34,7 @@ export default function Navbar() {
                     </div>
                 </NavLink>
             )}
-            <div className="flex-none gap-2 ">
+            <div className="flex-none gap-2 relative right-16 top-16 sm:right-4 sm:top-4">
                 <div className="dropdown dropdown-end ml-2">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-14 rounded-full">
