@@ -77,9 +77,9 @@ a.leaflet-popup-close-button > span {
 }
 
 .leaflet-control-zoom {
-  position: relative;
-  top: 520px;
-  left: 15px;
+    position: relative;
+    top: 80px;
+    left: 15px;
 }
 
 .leaflet-control-attribution {

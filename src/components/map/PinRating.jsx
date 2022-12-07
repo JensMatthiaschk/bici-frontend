@@ -30,8 +30,8 @@ export const PinRating = () => {
 
     //console.log("RATINGS", ratings)
     // console.log("RATINGINPUT", ratingInput)
-    console.log("postRatingsAnswer", postRatingsAnswer)
-    console.log("ratingInput", ratingInput)
+    // console.log("postRatingsAnswer", postRatingsAnswer)
+    // console.log("ratingInput", ratingInput)
 
     return (
         <div className="px-4 mb-10">
@@ -51,7 +51,7 @@ export const PinRating = () => {
                                 />
                                 <FaStar
                                     className="star mask mask-star-2"
-                                    color={ratingValueCurrent <= (hover || ratingInput) ? "#FFC107" : "grey"}
+                                    color={ratingValueCurrent <= (hover || ratingInput) ? "#fb923c" : "grey"}
                                     size={30}
                                     onMouseEnter={() => setHover(ratingValueCurrent)}
                                     onMouseLeave={() => setHover(null)}
