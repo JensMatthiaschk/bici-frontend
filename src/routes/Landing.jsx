@@ -46,8 +46,7 @@ const Landing = () => {
                   Hello Rider
                 </h2>
                 <h3 className="mb-5 text-3xl text-yellow-50">
-                  "Sign Up for free and prepare your self for the best bici
-                  expirience"
+                  "Sign Up for free and prepare for the best bici expirience"
                 </h3>
                 {/* The button to open modal */}
                 <label htmlFor="my-modal-6" className="btn">
