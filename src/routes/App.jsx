@@ -25,16 +25,18 @@ const App = () => {
       <div className='relative'>
         <div className="w-full">
           <Map />
-
           {!searchToggle ?
             <button onClick={() => setSearchToggle(true)} className="absolute btn rounded-full right-10 bottom-10 p-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-7 h-7 font-medium">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
             </button> :
             <div className="absolute right-10 bottom-10"><Searchbar /></div>}
+
           {/* <div className="flex justify-end items-end h-full w-fit relative top-540">
           </div> */}
+          <img src="/assets/bici-logo.png" alt="logo" className="w-32 absolute left-3 sm:left-10 bottom-3 sm:bottom-10 p-2" />
         </div>
+        {/* <div className="flex w-full justify-center mt-5 mb-5"><img src="/assets/bici-logo.png" alt="logo" className="w-32" /></div> */}
       </div>
     </div>
   )

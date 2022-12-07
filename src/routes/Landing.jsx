@@ -90,6 +90,8 @@ const Landing = () => {
                     <a href="#slide1" className="btn btn-ghost">❯</a>
                 </div>
             </div>
+            <div className="absolute bottom-5 sm:bottom-20 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="w-64 sm:w-80" /></div>
+
         </div>
 
 

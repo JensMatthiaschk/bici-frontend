@@ -23,7 +23,7 @@ export default function Navbar() {
     console.log(window.location.pathname);
 
     return (
-        <div className="navbar bg-transparent flex justify-between fixed z-10">
+        <div className="navbar bg-transparent flex justify-between fixed z-10 w-full">
             {window.location.pathname === "/map" ? (
                 <NavbarMap />
             ) : (
@@ -34,16 +34,15 @@ export default function Navbar() {
                     </div>
                 </NavLink>
             )}
-
-            <div className="flex-none gap-2">
+            <div className="flex-none gap-2 ">
                 <div className="dropdown dropdown-end ml-2">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-14 rounded-full">
                             {userProfileData ? (
                                 <img
                                     src={`${userProfileData.avatar_img?.aws_url
-                                            ? userProfileData.avatar_img.aws_url
-                                            : ""
+                                        ? userProfileData.avatar_img.aws_url
+                                        : ""
                                         }`}
                                 />
                             ) : (
@@ -53,7 +52,7 @@ export default function Navbar() {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                        className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 "
                     >
                         <li>
                             <label htmlFor="ProfileForm">Edit Profile</label>
