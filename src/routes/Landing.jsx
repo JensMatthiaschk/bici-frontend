@@ -43,19 +43,19 @@ const Landing = () => {
                 >
                     <div className="hero-overlay bg-opacity-40  ">
                         <div className="flex h-screen text-center items-center sm:items-center pb-20 ">
-                            <div className="w-full">
+                            <div className="w-full mt-20">
                                 <h2 className="mb-5 text-5xl font-bold text-yellow-50">
                                     Hello Rider
                                 </h2>
-                                <h3 className="mb-5 text-3xl text-yellow-50">
-                                    "Sign Up for free and prepare for the best bici experience"
+                                <h3 className="mb-5 text-3xl sm:text-2xl text-yellow-50">
+                                    Sign Up for free and prepare for the best bici experience
                                 </h3>
                                 {/* The button to open modal */}
-                                <label htmlFor="my-modal-6" className="btn">
+                                <label htmlFor="my-modal-6" className="btn mt-2">
                                     Sign Up
                                 </label>
+                                <div className="relative top-32 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="invert-[.15] hover:invert-0 w-64 sm:w-80" /></div>
                             </div>
-                            <div className="absolute bottom-20 sm:bottom-50 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="invert-[.15] hover:invert-0 w-64 sm:w-80" /></div>
                         </div>
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -78,10 +78,10 @@ const Landing = () => {
                         <div className="flex h-screen text-center items-end pt-32 sm:items-center pb-20">
                             <div className="w-full">
                                 <h2 className="mb-5 text-5xl font-bold text-yellow-50">
-                                    Chat with other Riders
+                                    Chat with other riders
                                 </h2>
-                                <h3 className="mb-5  text-2xl text-yellow-50">
-                                    Make contact with other cyclist, checkout and share places you
+                                <h3 className="mb-5 text-3xl sm:text-2xl text-yellow-50">
+                                    Make contact with other cyclists, checkout and share places you
                                     have visited
                                 </h3>
                             </div>
@@ -109,10 +109,10 @@ const Landing = () => {
                                     {" "}
                                     Find points of interest
                                 </h2>
-                                <h3 className="mb-5 text-2xl text-yellow-50">
+                                <h3 className="mb-5 text-3xl sm:text-2xl text-yellow-50">
                                     {" "}
-                                    "Search the interactvie Map for places to camp or stay with
-                                    other users, find showers, swimming spots and repair stations"{" "}
+                                    Search the interactvie Map for places to camp or stay with
+                                    other users, find showers, swimming spots and repair stations{" "}
                                 </h3>
                             </div>
                         </div>
@@ -141,8 +141,8 @@ const Landing = () => {
                                 <h2 className="mb-5 text-5xl font-bold text-yellow-50">
                                     Share your ride and find a partner
                                 </h2>
-                                <h3 className="mb-5 text-3xl text-yellow-50">
-                                    Post where you are going share your ride and find partners to
+                                <h3 className="mb-5 text-3xl sm:text-2xl text-yellow-50">
+                                    Post where you are going, share your ride and find partners to
                                     ride with
                                 </h3>
                             </div>
@@ -158,7 +158,6 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
-
             {/* Put this part before </body> tag */}
             <input type="checkbox" id="my-modal-6" className="modal-toggle" />
             <label

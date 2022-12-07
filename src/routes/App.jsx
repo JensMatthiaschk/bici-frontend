@@ -26,8 +26,8 @@ const App = () => {
         <div className="w-full">
           <Map />
           {!searchToggle ?
-            <button onClick={() => setSearchToggle(true)} className="absolute btn rounded-full right-8 bottom-8 p-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-7 h-7 font-medium">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            <button onClick={() => setSearchToggle(true)} className="absolute btn rounded-full right-8 bottom-8 p-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-7 h-7 font-medium">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
             </button> :
             <div className="absolute right-8 bottom-8 z-10"><Searchbar /></div>}

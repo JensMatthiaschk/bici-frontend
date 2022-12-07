@@ -16,7 +16,7 @@ export const PinRating = () => {
         const comments = getRatings(data).then(data => setPinRatings(data.data))
     }, [pinId])
 
-    async function handleRatingChange() {
+    async function handleRatingChange(event) {
         // e.preventDefault()
         try {
             // ratingValue = e.target.value
