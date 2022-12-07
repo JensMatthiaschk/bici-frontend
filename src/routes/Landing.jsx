@@ -47,14 +47,14 @@ const Landing = () => {
                                 <h2 className="mb-5 text-5xl font-bold text-yellow-50">
                                     Hello Rider
                                 </h2>
-                                <h3 className="mb-5 text-3xl sm:text-2xl text-yellow-50">
+                                <h3 className="mb-5 text-2xl sm:text-3xl text-yellow-50">
                                     Sign Up for free and prepare for the best bici experience
                                 </h3>
                                 {/* The button to open modal */}
                                 <label htmlFor="my-modal-6" className="btn mt-2">
                                     Sign Up
                                 </label>
-                                <div className="relative top-32 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="invert-[.15] hover:invert-0 w-64 sm:w-80" /></div>
+                                <div className="relative top-40 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="invert-[.15] hover:invert-0 w-64 sm:w-80" /></div>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@ const Landing = () => {
                                 <h2 className="mb-5 text-5xl font-bold text-yellow-50">
                                     Chat with other riders
                                 </h2>
-                                <h3 className="mb-5 text-3xl sm:text-2xl text-yellow-50">
+                                <h3 className="mb-5 text-2xl sm:text-3xl text-yellow-50">
                                     Make contact with other cyclists, checkout and share places you
                                     have visited
                                 </h3>
@@ -109,7 +109,7 @@ const Landing = () => {
                                     {" "}
                                     Find points of interest
                                 </h2>
-                                <h3 className="mb-5 text-3xl sm:text-2xl text-yellow-50">
+                                <h3 className="mb-5 text-2xl sm:text-3xl text-yellow-50">
                                     {" "}
                                     Search the interactvie Map for places to camp or stay with
                                     other users, find showers, swimming spots and repair stations{" "}
@@ -141,7 +141,7 @@ const Landing = () => {
                                 <h2 className="mb-5 text-5xl font-bold text-yellow-50">
                                     Share your ride and find a partner
                                 </h2>
-                                <h3 className="mb-5 text-3xl sm:text-2xl text-yellow-50">
+                                <h3 className="mb-5 text-2xl sm:text-3xl text-yellow-50">
                                     Post where you are going, share your ride and find partners to
                                     ride with
                                 </h3>

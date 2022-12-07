@@ -23,13 +23,13 @@ export const Login = () => {
 
     return (
         <div>
-            <Form method="post" action="/login" >
+            <Form method="post" action="/login" className="mt-4">
                 <fieldset
                 // style={{ display: "flex", flexDirection: "column", rowGap: 10 }}
                 >
-                    <label htmlFor="Email or UserName">Email or username</label>
+                    <label htmlFor="Email or UserName" >Email or username</label>
                     <br />
-                    <input className="input input-bordered w-full max-w-xs"
+                    <input className="input input-bordered w-full max-w-xs mt-2 mb-4"
                         type="text"
                         name="email"
                         //autoComplete=""
@@ -39,7 +39,7 @@ export const Login = () => {
                     <br />
                     <label htmlFor="password">password</label>
                     <br />
-                    <input className="input input-bordered w-full max-w-xs"
+                    <input className="input input-bordered w-full max-w-xs mt-2 mb-4"
                         type="password"
                         name="password"
                         autoComplete="current-password"
@@ -47,7 +47,7 @@ export const Login = () => {
                         required
                     />
                     <br />
-                    <button type="submit" className='btn'>
+                    <button type="submit" className='btn mt-2'>
                         Login
                     </button>
                 </fieldset>
