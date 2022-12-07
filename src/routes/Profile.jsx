@@ -39,95 +39,98 @@ export const Profile = () => {
 
             <div className="flex w-full justify-center mt-5 mb-5 invert-[.15] hover:invert-0"><img src="/assets/bici-logo.png" alt="logo" className="w-52" /></div>
 
-            {profileData.data ?
-                <div className=" text-center mb-2">
+            {profileData.data ? (
+                <div className=" text-center  mb-2">
                     <div className="flex justify-center mb-5 pt-8 ">
-                        <img className=" w-24 h-3/5 rounded-full border-solid border-2 border-grey " src={`${profileData.data.avatar_img.aws_url}`} />
+                        <img
+                            className=" w-24 h-3/5 rounded-full border-solid border-2 border-grey "
+                            src={`${profileData.data.avatar_img.aws_url}`}
+                        />
                     </div>
-                    <div className="text-black">
+                    <div className="text-black min-h-96">
                         {/* <h3 className='font-bold pb-4 text-base'>Account Details</h3> */}
 
-                        {profileData.data.nickname !== "" ?
+                        {profileData.data.nickname !== "" ? (
                             <>
-                                <h6 className='font-bold pb-2 text-lg'>Welcome Back!</h6>
-                                <p className='text-lg pb-4'>{profileData.data.nickname}</p>
-                            </> : null}
+                                <h6 className="font-bold pb-2 text-lg">Welcome Back!</h6>
+                                <p className="text-lg pb-4">{profileData.data.nickname}</p>
+                            </>
+                        ) : null}
 
-
-              {profileData.data.bikeType !== "" ? (
+                        {profileData.data.bikeType !== "" ? (
+                            <>
+                                <h6 className="font-bold  pb-2 text-lg">My bike style</h6>
+                                <p className="text-lg pb-4">{profileData.data.bikeType}</p>
+                            </>
+                        ) : null}
+                        {profileData.data.description ? (
+                            <>
+                                <h6 className="font-bold  pb-2 text-lg">About me</h6>
+                                <p className="text-lg pb-4">
+                                    {" "}
+                                    {profileData.data.description}
+                                </p>
+                            </>
+                        ) : null}
+                        {profileData.data.address ? (
+                            <>
+                                <h6 className="font-bold pb-2 text-lg">address</h6>
+                                <p className="text-lg pb-4">{profileData.data.address}</p>
+                            </>
+                        ) : null}
+                        {profileData.data.cell ? (
+                            <>
+                                <h6 className="font-bold  pb-2 text-lg">cellphone number</h6>
+                                <p className="text-lg pb-4">{profileData.data.cell}</p>
+                            </>
+                        ) : null}
+                        {profileData.data.birthday ? (
+                            <>
+                                <h6 className="font-bold  pb-2 text-lg">birthday</h6>
+                                <p className="text-lg pb-4">
+                                    {new Date(profileData.data.birthday).toLocaleDateString(
+                                        "en-IN"
+                                    )}
+                                </p>
+                            </>
+                        ) : null}
+                        {profileData.data.description === "" ||
+                            profileData.data.address === "" ||
+                            profileData.data.cell === "" ||
+                            profileData.data.birthday === "" ? (
+                            <>
+                                <p className="text-lg mt-4 mb-2">
+                                    Please complete filling out your profile details
+                                </p>
+                                <label htmlFor="ProfileForm" className="btn btn-lg">
+                                    Edit Profile
+                                </label>
+                            </>
+                        ) : (
+                            ""
+                        )}
+                        <ProfileForm />
+                    </div>
+                </div>
+            ) : (
                 <>
-                  <h6 className="font-bold  pb-2 text-lg">My bike style</h6>
-                  <p className="text-lg pb-4">{profileData.data.bikeType}</p>
+                    <p className="text-sm mt-4 mb-2">
+                        Please complete filling out your profile details
+                    </p>
+                    <label htmlFor="ProfileForm" className="btn btn-sm">
+                        Edit Profile
+                    </label>
+                    <ProfileForm />
                 </>
-              ) : null}
-              {profileData.data.description ? (
-                <>
-                  <h6 className="font-bold  pb-2 text-lg">About me</h6>
-                  <p className="text-lg pb-4">
-                    {" "}
-                    {profileData.data.description}
-                  </p>
-                </>
-              ) : null}
-              {profileData.data.address ? (
-                <>
-                  <h6 className="font-bold pb-2 text-lg">address</h6>
-                  <p className="text-lg pb-4">{profileData.data.address}</p>
-                </>
-              ) : null}
-              {profileData.data.cell ? (
-                <>
-                  <h6 className="font-bold  pb-2 text-lg">cellphone number</h6>
-                  <p className="text-lg pb-4">{profileData.data.cell}</p>
-                </>
-              ) : null}
-              {profileData.data.birthday ? (
-                <>
-                  <h6 className="font-bold  pb-2 text-lg">birthday</h6>
-                  <p className="text-lg pb-4">
-                    {new Date(profileData.data.birthday).toLocaleDateString(
-                      "en-IN"
-                    )}
-                  </p>
-                </>
-              ) : null}
-              {profileData.data.description === "" ||
-              profileData.data.address === "" ||
-              profileData.data.cell === "" ||
-              profileData.data.birthday === "" ? (
-                <>
-                  <p className="text-lg mt-4 mb-2">
-                    Please complete filling out your profile details
-                  </p>
-                  <label htmlFor="ProfileForm" className="btn btn-lg">
-                    Edit Profile
-                  </label>
-                </>
-              ) : (
-                ""
-              )}
-              <ProfileForm />
-            </div>
-          </div>
-        ) : (
-          <>
-            <p className="text-sm mt-4 mb-2">
-              Please complete filling out your profile details
-            </p>
-            <label htmlFor="ProfileForm" className="btn btn-sm">
-              Edit Profile
-            </label>
-            <ProfileForm />
-          </>
-        )}
-      </div>
-      <p className="flex justify-center text-base">
-        Find your Pins and Comments down here:
-      </p>
-      <div className="flex justify-center place-content-around bg-white ">
-        <ProfileDashboard />
-      </div>
+            )}
+        </div>
+        <p className="flex justify-center text-base">
+            Find your Pins and Comments down here:
+        </p>
+        <div className="flex justify-center place-content-around bg-white ">
+            <ProfileDashboard />
+        </div>
     </>
-  );
+    );
 };
 export default Profile;

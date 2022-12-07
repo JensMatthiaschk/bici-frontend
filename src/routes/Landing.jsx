@@ -161,7 +161,7 @@ const Landing = () => {
 
 
         </div>
-      </div>
+      
 
       {/* Put this part before </body> tag */}
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
