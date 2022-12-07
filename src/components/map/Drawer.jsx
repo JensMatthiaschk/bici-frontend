@@ -54,7 +54,7 @@ export const Drawer = () => {
 
     return (
 
-        <div className="drawer-side">
+        <div className="drawer-side ">
             <label htmlFor="my-drawer" className="drawer-overlay"></label>
             <ul className="menu w-80 bg-base-100 text-base-content">
                 {/* Carousel */}
