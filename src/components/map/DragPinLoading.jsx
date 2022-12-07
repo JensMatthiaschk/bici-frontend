@@ -95,6 +95,7 @@ export default function DragPinLoading() {
                   const count = i + 1;
                   return (
                     <div
+                      key={i}
                       id={"popUpSlide" + `${count}`}
                       style={{
                         // value of the image
@@ -154,23 +155,3 @@ export default function DragPinLoading() {
     </>
   );
 }
-
-// <div className="carousel w-full h-60 mb-10">
-//   {Images.map((img, i) => {
-//     const count = i + 1
-//     return (
-//       <div id={"slide" + `${count}`}
-//         style={{
-//           "background-image": `url("https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png")`,
-//           "background- repeat": "no-repeat",
-//           "background-size": "contain",
-//         }}
-//         className="carousel-item relative w-full">
-//         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-//           <a href={"#slide" + `${count - 1}`} className="btn btn-circle w-8 h-4 p-0">❮</a>
-//           <a href={"#slide" + `${count + 1}`} className="btn btn-circle w-8 h-4 p-0">❯</a>
-//         </div>
-//       </div >
-//     )
-//   })}
-// </div >

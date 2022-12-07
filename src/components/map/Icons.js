@@ -7,7 +7,7 @@ const foundPin = L.icon({
 const myIcon = L.icon({
   iconUrl: "assets/locationIcon.png",
   iconSize: [50, 50],
-  iconAnchor: [28, 64],
+  iconAnchor: [22, 54],
   popupAnchor: [-15, -70],
 });
 
