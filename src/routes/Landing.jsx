@@ -19,6 +19,7 @@ const Landing = () => {
             </div>
           </div>
         </div>
+
         <div className="navbar-end space-x-1.5 ">
           <label htmlFor="my-modal-5" className="btn btn-info">
             Log In
@@ -53,6 +54,7 @@ const Landing = () => {
                   Sign Up
                 </label>
               </div>
+
             </div>
           </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -144,6 +146,7 @@ const Landing = () => {
                 </h3>
               </div>
             </div>
+
           </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide3" className="btn btn-ghost">
@@ -153,6 +156,10 @@ const Landing = () => {
               ❯
             </a>
           </div>
+
+            <div className="absolute bottom-5 sm:bottom-20 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="w-64 sm:w-80" /></div>
+
+
         </div>
       </div>
 
