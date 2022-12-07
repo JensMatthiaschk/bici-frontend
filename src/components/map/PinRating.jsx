@@ -9,32 +9,32 @@ export const PinRating = () => {
     // const [pinRatings, setPinRatings] = useState()
     const [ratingInput, setRatingInput] = useState()
     const [hover, setHover] = useState(null)
+    const [postRatingsAnswer, setPostRatingAnswer] = useState()
 
     useEffect(() => {
         const data = { pinId }
         const comments = getRatings(data).then(data => setPinRatings(data.data))
     }, [pinId])
 
-    async function handleRatingChange(e) {
-        e.preventDefault()
+    async function handleRatingChange() {
+        // e.preventDefault()
         try {
-            const ratingValue = e.target.value
-            //const ratingValue = ratingInput
-            console.log("RATINGVALUE", ratingValue)
+            // ratingValue = e.target.value
             const ratingData = {}
-            ratingData.ratingValue = ratingValue
+            ratingData.ratingValue = ratingInput
             ratingData.pinId = pinId
-            console.log("RAtiNGDATA", ratingData)
-            postRating(ratingData);
+            postRating(ratingData).then(data => setPostRatingAnswer(data));
         }
         catch (err) { console.log(err) }
     }
 
-    // console.log("RATINGS", ratings)
+    //console.log("RATINGS", ratings)
     // console.log("RATINGINPUT", ratingInput)
+    console.log("postRatingsAnswer", postRatingsAnswer)
+    console.log("ratingInput", ratingInput)
 
     return (
-        <>
+        <div className="px-4 mb-10">
             <p className="relative bottom-5 font-normal">rate this place</p>
             <div className="flex relative bottom-4">
                 <br />
@@ -47,10 +47,10 @@ export const PinRating = () => {
                                     name="rating"
                                     type="radio"
                                     value={ratingValueCurrent}
-                                    onClick={handleRatingChange}
+                                    onClick={() => { handleRatingChange(), setRatingInput(ratingValueCurrent) }}
                                 />
                                 <FaStar
-                                    className="star"
+                                    className="star mask mask-star-2"
                                     color={ratingValueCurrent <= (hover || ratingInput) ? "#FFC107" : "grey"}
                                     size={30}
                                     onMouseEnter={() => setHover(ratingValueCurrent)}
@@ -61,7 +61,8 @@ export const PinRating = () => {
                     })
                 }
             </div >
-        </>
+            {postRatingsAnswer?.success ? <p className="text-green-500 bg-lime-100 rounded w-fit px-3 mb-4">rated successfully!</p> : ""}
+        </div>
 
 
         // <>
