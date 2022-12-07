@@ -30,7 +30,7 @@ const Landing = () => {
 
 
         <div className="carousel w-screen h-screen" /* style={{ height: "80vh " }} */>
-            <div id="slide1" className="flex carousel-item relative w-full  bg-cover bg-center " style={{ 'backgroundImage': `url("http://cdn2.cyclist.co.uk/sites/cyclist/files/2017/01/st0040420.jpg")` }}>
+            <div id="slide1" className="flex carousel-item relative w-full  bg-cover bg-center " style={{ 'backgroundImage': `url("https://cdn2.cyclist.co.uk/sites/cyclist/files/2017/01/st0040420.jpg")` }}>
                 <div className="hero-overlay bg-opacity-40  ">
                     <div className="flex h-screen text-center items-center pb-32 sm:items-center pb-20 ">
                         <div className="w-full">

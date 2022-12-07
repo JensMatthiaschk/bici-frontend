@@ -11,7 +11,7 @@ function LocationMarkers() {
   const map = useMapEvents({
     click(e) {
 
-      fetch(`http://dev.virtualearth.net/REST/v1/Locations/${e.latlng.lat},${e.latlng.lng}?o=json&key=AoqHihRk2OT53P1kI_39CCr6qbxPrJ4bQwJG-9au9bz-CQ0bjbPllLhnOOlCX2kA`)
+      fetch(`https://dev.virtualearth.net/REST/v1/Locations/${e.latlng.lat},${e.latlng.lng}?o=json&key=AoqHihRk2OT53P1kI_39CCr6qbxPrJ4bQwJG-9au9bz-CQ0bjbPllLhnOOlCX2kA`)
         .then(res => res.json())
         .then(data => {
 
