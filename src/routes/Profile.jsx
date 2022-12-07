@@ -36,46 +36,46 @@ export const Profile = () => {
                 <div className="chat-bubble chat-bubble-black">You underestimate my power!</div>
             </div> */}
             {profileData.data ?
-                <div className=" text-center  mb-3">
+                <div className=" text-center  mb-2">
                     <div className="flex justify-center mb-5 pt-8 ">
                         <img className=" w-24 h-3/5 rounded-full border-solid border-2 border-grey " src={`${profileData.data.avatar_img.aws_url}`} />
                     </div>
                     <div className=" px- text-black">
-                        <h3 className='font-bold pb-4 text-base'>Account Details</h3>
+                        {/* <h3 className='font-bold pb-4 text-base'>Account Details</h3> */}
 
                         {profileData.data.nickname !== "" ?
                             <>
-                                <h6 className='font-bold pb-3 text-2xl'>Nickname</h6>
-                                <p className='text-lg pb-6'>{profileData.data.nickname}</p>
+                                <h6 className='font-bold pb-2 text-lg'>Welcome Back</h6>
+                                <p className='text-lg pb-4'>{profileData.data.nickname}</p>
                             </> : null}
 
                         {profileData.data.bikeType !== "" ?
                             <>
-                                <h6 className='font-bold  pb-3 text-2xl'>My bike style</h6>
-                                <p className='text-lg pb-6'>{profileData.data.bikeType}</p>
+                                <h6 className='font-bold  pb-2 text-lg'>My bike style</h6>
+                                <p className='text-lg pb-4'>{profileData.data.bikeType}</p>
                             </> : null}
                         {profileData.data.description ?
                             <>
-                                <h6 className='font-bold  pb-3 text-2xl'>About me</h6>
-                                <p className='text-lg pb-6'> {profileData.data.description}</p>
+                                <h6 className='font-bold  pb-2 text-lg'>About me</h6>
+                                <p className='text-lg pb-4'> {profileData.data.description}</p>
                             </>
                             : null}
                         {profileData.data.address ?
                             <>
-                                <h6 className='font-bold pb-3 text-2xl'>address</h6>
-                                <p className='text-lg pb-6'>{profileData.data.address}</p>
+                                <h6 className='font-bold pb-2 text-lg'>address</h6>
+                                <p className='text-lg pb-4'>{profileData.data.address}</p>
                             </>
                             : null}
                         {profileData.data.cell ?
                             <>
-                                <h6 className='font-bold  pb-3 text-2xl'>cellphone number</h6>
-                                <p className='text-lg pb-6'>{profileData.data.cell}</p>
+                                <h6 className='font-bold  pb-2 text-lg'>cellphone number</h6>
+                                <p className='text-lg pb-4'>{profileData.data.cell}</p>
                             </>
                             : null}
                         {profileData.data.birthday ?
                             <>
-                                <h6 className='font-bold  pb-3 text-2xl'>birthday</h6>
-                                <p className='text-lg pb-6'>{new Date(profileData.data.birthday).toLocaleDateString('en-IN')}</p>
+                                <h6 className='font-bold  pb-2 text-lg'>birthday</h6>
+                                <p className='text-lg pb-4'>{new Date(profileData.data.birthday).toLocaleDateString('en-IN')}</p>
                             </>
                             : null}
                         {profileData.data.description === "" || profileData.data.address === "" || profileData.data.cell === "" || profileData.data.birthday === "" ?
