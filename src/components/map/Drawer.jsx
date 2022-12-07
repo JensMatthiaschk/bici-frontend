@@ -47,40 +47,42 @@ export const Drawer = () => {
       <ul className="menu w-80 bg-base-100 text-base-content">
         {/* Carousel */}
         <div className="carousel w-full h-60 mb-10">
-          {drawerPin.pin_imgs.map((img, i) => {
-            const count = i + 1;
-            return (
-              <div
-                id={"drawerSlide" + `${count}`}
-                style={{
-                  "background-image": `url(${
-                    img.aws_url !== null
-                      ? img.aws_url
-                      : "https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png"
-                  })`,
-                  "background-repeat": "no-repeat",
-                  "background-size": "cover",
-                }}
-                className="carousel-item relative w-full"
-              >
-                {/* <img src="https://placeimg.com/800/200/arch" className="w-full" /> */}
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                  <a
-                    href={"#drawerSlide" + `${count - 1}`}
-                    className="btn btn-circle w-8 h-4 p-0"
+          {drawerPin.length === 0
+            ? null
+            : drawerPin.pin_imgs.map((img, i) => {
+                const count = i + 1;
+                return (
+                  <div
+                    id={"drawerSlide" + `${count}`}
+                    style={{
+                      "background-image": `url(${
+                        img.aws_url !== null
+                          ? img.aws_url
+                          : "https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png"
+                      })`,
+                      "background-repeat": "no-repeat",
+                      "background-size": "cover",
+                    }}
+                    className="carousel-item relative w-full"
                   >
-                    ❮
-                  </a>
-                  <a
-                    href={"#drawerSlide" + `${count + 1}`}
-                    className="btn btn-circle w-8 h-4 p-0"
-                  >
-                    ❯
-                  </a>
-                </div>
-              </div>
-            );
-          })}
+                    {/* <img src="https://placeimg.com/800/200/arch" className="w-full" /> */}
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                      <a
+                        href={"#drawerSlide" + `${count - 1}`}
+                        className="btn btn-circle w-8 h-4 p-0"
+                      >
+                        ❮
+                      </a>
+                      <a
+                        href={"#drawerSlide" + `${count + 1}`}
+                        className="btn btn-circle w-8 h-4 p-0"
+                      >
+                        ❯
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
         </div>
 
         {/* Rating Average */}
