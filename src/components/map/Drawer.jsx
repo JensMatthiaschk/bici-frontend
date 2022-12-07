@@ -40,22 +40,17 @@ export const Drawer = () => {
     }, [pinId])
 
     useEffect(() => {
-        if (pinRatings) {
-            pinRatings.map((e) =>
-                setRatingInput([...pinRatings, e.ratingValue])
-            )
-            const total = pinRatings.length
-            setTotalratings(total)
-            console.log("TOTAL", total)
-            const initialValue = 0;
-            console.log("ratingInput", ratingInput)
-            const average = ratingInput.reduce((a, b) => a + b, initialValue)
-            // setAverageRating(average)
-            console.log("averageRating", average)
+        if (pinRatings?.length) {
+            let tot = 0;
+            pinRatings.forEach((e) => tot += e.ratingValue)
+            setAverageRating(tot / pinRatings.length)
         }
     }, [pinRatings])
 
-    console.log("pinRatings", pinRatings)
+    useEffect(() => {
+        console.log("OOOOOOOO", averageRating)
+    }, [averageRating])
+
 
     return (
 
@@ -89,7 +84,7 @@ export const Drawer = () => {
                 <>
                     <div className="flex relative bottom-4 items-center p-4">
                         <br />
-                        {pinRatings[0]?.ratingValue ? <p className="pr-2">{pinRatings[0].ratingValue}</p> : <p className="pr-2">0.0</p>}
+                        {averageRating ? <p className="pr-2">{averageRating}</p> : <p className="pr-2">0.0</p>}
                         {[...Array(5)].map((star, i) => {
                             const ratingValueCurrent = i + 1
                             if (pinRatings) {
@@ -125,7 +120,7 @@ export const Drawer = () => {
                             }
                         })
                         }
-                        {pinRatings[0]?.ratingValue ? <p className="pr-2">({pinRatings[0].ratingValue})</p> : <p className="pr-2">(0)</p>}
+                        {pinRatings ? <p className="pr-2">({pinRatings.length})</p> : <p className="pr-2">(0)</p>}
                     </div >
                 </>
 
