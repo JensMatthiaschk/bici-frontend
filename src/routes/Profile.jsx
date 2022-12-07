@@ -35,7 +35,7 @@ export const Profile = () => {
             <div className="chat chat-end">
                 <div className="chat-bubble chat-bubble-black">You underestimate my power!</div>
             </div> */}
-            <div className="flex w-full justify-center mt-5 mb-5"><img src="/assets/bici-logo.png" alt="logo" className="w-52" /></div>
+            <div className="flex w-full justify-center mt-5 mb-5 invert-[.15] hover:invert-0"><img src="/assets/bici-logo.png" alt="logo" className="w-52" /></div>
             {profileData.data ?
                 <div className=" text-center mb-2">
                     <div className="flex justify-center mb-5 pt-8 ">

@@ -38,7 +38,7 @@ const Landing = () => {
                             {/* The button to open modal */}
                             <label htmlFor="my-modal-6" className="btn">Sign Up</label>
                         </div>
-                        <div className="absolute bottom-20 sm:bottom-50 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="invert-[.10] hover:invert w-64 sm:w-80" /></div>
+                        <div className="absolute bottom-20 sm:bottom-50 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="invert-[.15] hover:invert-0 w-64 sm:w-80" /></div>
                     </div>
                 </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

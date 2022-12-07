@@ -31,12 +31,8 @@ const App = () => {
             </svg>
             </button> :
             <div className="absolute right-8 bottom-8 z-10"><Searchbar /></div>}
-
-          {/* <div className="flex justify-end items-end h-full w-fit relative top-540">
-          </div> */}
-          <img src="/assets/bici-logo.png" alt="logo" className="w-32 absolute left-5 sm:left-10 bottom-3 sm:bottom-10" />
+          <img src="/assets/bici-logo.png" alt="logo" className="w-32 absolute left-5 sm:left-10 bottom-3 sm:bottom-10 invert-[.15] hover:invert-0" />
         </div>
-        {/* <div className="flex w-full justify-center mt-5 mb-5"><img src="/assets/bici-logo.png" alt="logo" className="w-32" /></div> */}
       </div>
     </div>
   )
