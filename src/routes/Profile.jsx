@@ -24,34 +24,28 @@ export const Profile = () => {
     if (!token.success) return navigate("/login");
   })();
 
-  return (
-    <>
-      <Navbar />
+ 
+    return (<>
+        <Navbar />
 
-      <div className=" bg-gradient-to-b from-accent to-white">
-        {/* <div className="chat chat-start">
-                <div className="chat-bubble">It's over Anakin, <br />I have the high ground.</div>
-            </div>
-            <div className="chat chat-end">
-                <div className="chat-bubble chat-bubble-black">You underestimate my power!</div>
-            </div> */}
-        {profileData.data ? (
-          <div className=" text-center  mb-2">
-            <div className="flex justify-center mb-5 pt-8 ">
-              <img
-                className=" w-24 h-3/5 rounded-full border-solid border-2 border-grey "
-                src={`${profileData.data.avatar_img.aws_url}`}
-              />
-            </div>
-            <div className=" px- text-black">
-              {/* <h3 className='font-bold pb-4 text-base'>Account Details</h3> */}
+        <div className=' bg-gradient-to-b from-accent to-white pt-10'>
+            
 
-              {profileData.data.nickname !== "" ? (
-                <>
-                  <h6 className="font-bold pb-2 text-lg">Welcome Back</h6>
-                  <p className="text-lg pb-4">{profileData.data.nickname}</p>
-                </>
-              ) : null}
+            <div className="flex w-full justify-center mt-5 mb-5"><img src="/assets/bici-logo.png" alt="logo" className="w-52" /></div>
+            {profileData.data ?
+                <div className=" text-center  mb-2">
+                    <div className="flex justify-center mb-5 pt-8 ">
+                        <img className=" w-24 h-3/5 rounded-full border-solid border-2 border-grey " src={`${profileData.data.avatar_img.aws_url}`} />
+                    </div>
+                    <div className="text-black min-h-96">
+                        {/* <h3 className='font-bold pb-4 text-base'>Account Details</h3> */}
+
+                        {profileData.data.nickname !== "" ?
+                            <>
+                                <h6 className='font-bold pb-2 text-lg'>Welcome Back!</h6>
+                                <p className='text-lg pb-4'>{profileData.data.nickname}</p>
+                            </> : null}
+
 
               {profileData.data.bikeType !== "" ? (
                 <>
