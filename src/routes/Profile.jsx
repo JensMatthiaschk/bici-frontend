@@ -37,11 +37,11 @@ export const Profile = () => {
             </div> */}
             <div className="flex w-full justify-center mt-5 mb-5"><img src="/assets/bici-logo.png" alt="logo" className="w-52" /></div>
             {profileData.data ?
-                <div className=" text-center  mb-2">
+                <div className=" text-center mb-2">
                     <div className="flex justify-center mb-5 pt-8 ">
                         <img className=" w-24 h-3/5 rounded-full border-solid border-2 border-grey " src={`${profileData.data.avatar_img.aws_url}`} />
                     </div>
-                    <div className="text-black min-h-96">
+                    <div className="text-black">
                         {/* <h3 className='font-bold pb-4 text-base'>Account Details</h3> */}
 
                         {profileData.data.nickname !== "" ?

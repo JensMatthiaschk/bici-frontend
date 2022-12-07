@@ -28,17 +28,17 @@ const Landing = () => {
             </div>
         </div>
 
-
         <div className="carousel w-screen h-screen" /* style={{ height: "80vh " }} */>
             <div id="slide1" className="flex carousel-item relative w-full  bg-cover bg-center " style={{ 'backgroundImage': `url("https://cdn2.cyclist.co.uk/sites/cyclist/files/2017/01/st0040420.jpg")` }}>
                 <div className="hero-overlay bg-opacity-40  ">
-                    <div className="flex h-screen text-center items-center pb-32 sm:items-center pb-20 ">
+                    <div className="flex h-screen text-center items-center sm:items-center pb-20 ">
                         <div className="w-full">
                             <h2 className="mb-5 text-5xl font-bold text-yellow-50">Hello Rider</h2>
                             <h3 className="mb-5 text-3xl text-yellow-50">"Sign Up for free and prepare your self for the best bike expirience"</h3>
                             {/* The button to open modal */}
                             <label htmlFor="my-modal-6" className="btn">Sign Up</label>
                         </div>
+                        <div className="absolute bottom-20 sm:bottom-50 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="invert-[.10] hover:invert w-64 sm:w-80" /></div>
                     </div>
                 </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -51,7 +51,7 @@ const Landing = () => {
                     <div className="flex h-screen text-center items-end pt-32 sm:items-center pb-20">
                         <div className='w-full'>
                             <h2 className="mb-5 text-5xl font-bold text-yellow-50">Chat with other Riders</h2>
-                            <h3 className="mb-5  text-2xl text-yellow-50">Make contact with other users and  chat about the places you have visit</h3>
+                            <h3 className="mb-5  text-2xl text-yellow-50">Make contact with other users and chat about the places you have visit</h3>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ const Landing = () => {
                     <a href="#slide1" className="btn btn-ghost">❯</a>
                 </div>
             </div>
-            <div className="absolute bottom-5 sm:bottom-20 flex w-full justify-center"><img src="/assets/bici-logo.png" alt="logo" className="w-64 sm:w-80" /></div>
+
 
         </div>
 
