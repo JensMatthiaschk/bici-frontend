@@ -30,42 +30,82 @@ export default function Navbar() {
                 <NavLink to="/map">
                     {" "}
                     <div className="flex-1">
-                        <a className="btn glass normal-case text-lg">Map</a>
+                        <a className="btn glass text-black normal-case text-lg">Map</a>
                     </div>
                 </NavLink>
             )}
-            <div className="flex-none gap-2 relative right-16 top-16 sm:right-4 sm:top-4">
-                <div className="dropdown dropdown-end ml-2">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-14 rounded-full">
-                            {userProfileData ? (
-                                <img
-                                    src={`${userProfileData.avatar_img?.aws_url
-                                        ? userProfileData.avatar_img.aws_url
-                                        : ""
-                                        }`}
-                                />
-                            ) : (
-                                <img src="https://placeimg.com/80/80/people" />
-                            )}
-                        </div>
-                    </label>
-                    <ul
-                        tabIndex={0}
-                        className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 "
-                    >
-                        <li>
+
+            {window.location.pathname === "/map" ? (<div className="relative flex-none top-16 sm:top-4 right-16 sm:right-4"><div className="dropdown dropdown-end ml-2">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                    <div className="w-14 rounded-full">
+                        {userProfileData ? (
+                            <img
+                                src={`${userProfileData.avatar_img?.aws_url
+                                    ? userProfileData.avatar_img.aws_url
+                                    : ""
+                                    }`}
+                            />
+                        ) : (
+                            <img src="https://placeimg.com/80/80/people" />
+                        )}
+                    </div>
+                </label>
+                <ul
+                    tabIndex={0}
+                    className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 "
+                >
+                    <li>
+                        {window.location.pathname === "/map" ? (
+                            <NavLink to="../profile">Profile</NavLink>
+                        ) : (
                             <label htmlFor="ProfileForm">Edit Profile</label>
-                        </li>
-                        <li>
-                            <a>Settings</a>
-                        </li>
-                        <li onClick={() => clearToken()}>
-                            <NavLink to="../Login">Logout</NavLink>
-                        </li>
-                    </ul>
-                </div>
+                        )}
+                    </li>
+                    <li>
+                        <a>Settings</a>
+                    </li>
+                    <li onClick={() => clearToken()}>
+                        <NavLink to="../Login">Logout</NavLink>
+                    </li>
+                </ul>
             </div>
+            </div>) : (<div className="relative flex-none top-2 sm:top-4 right-2 sm:right-4"><div className="dropdown dropdown-end ml-2">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                    <div className="w-14 rounded-full">
+                        {userProfileData ? (
+                            <img
+                                src={`${userProfileData.avatar_img?.aws_url
+                                    ? userProfileData.avatar_img.aws_url
+                                    : ""
+                                    }`}
+                            />
+                        ) : (
+                            <img src="https://placeimg.com/80/80/people" />
+                        )}
+                    </div>
+                </label>
+                <ul
+                    tabIndex={0}
+                    className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 "
+                >
+                    <li>
+                        {window.location.pathname === "/map" ? (
+                            <NavLink to="../profile">Profile</NavLink>
+                        ) : (
+                            <label htmlFor="ProfileForm">Edit Profile</label>
+                        )}
+                    </li>
+                    <li>
+                        <a>Settings</a>
+                    </li>
+                    <li onClick={() => clearToken()}>
+                        <NavLink to="../Login">Logout</NavLink>
+                    </li>
+                </ul>
+            </div>
+            </div>)}
+
+
         </div>
     );
 }
