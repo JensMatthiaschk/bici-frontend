@@ -52,7 +52,7 @@ const ProfileDashboard = () => {
                          */}
                         <th className="text-base px-4">Title</th>
                         <th className="text-base px-4">Type</th>
-                        <th className="text-base px-4">Edit/Delte</th>
+                        <th className="text-base px-4">Edit/Delete</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -109,7 +109,7 @@ const ProfileDashboard = () => {
                       <tr>
                         <th className="px-4">Comments</th>
 
-                        <th className="px-4">Edit/Delte</th>
+                        <th className="px-4">Edit/Delete</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -186,7 +186,7 @@ const ProfileDashboard = () => {
 
                               <th className="px-4">
                                 <button
-                                  onClick={() => {}}
+                                  onClick={() => { }}
                                   className="btn btn-alert  btn-xs"
                                 >
                                   report
