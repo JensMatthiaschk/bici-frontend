@@ -98,11 +98,10 @@ export default function DragPinLoading() {
                       id={"popUpSlide" + `${count}`}
                       style={{
                         // value of the image
-                        "background-image": `url(${
-                          img.aws_url !== null
+                        "background-image": `url(${img.aws_url !== null
                             ? img.aws_url
                             : "https://biciappimages.s3.eu-central-1.amazonaws.com/pin_images/Placeholder_view_vector.svg.png"
-                        })`,
+                          })`,
 
                         /*  url()` */
                         "background-repeat": "no-repeat",
@@ -130,7 +129,7 @@ export default function DragPinLoading() {
               </div>
 
               <div className="w-full h-6 px-4 py-5">
-                <p className="m-0 h-6">{pin.description}</p>
+                <p className="m-0 h-6">{pin.title}</p>
               </div>
 
               {/* <label htmlFor="my-drawer1" className="btn btn-primary drawer-button">1Open drawer</label> */}
