@@ -12,8 +12,10 @@ export const PinRating = () => {
     const [postRatingsAnswer, setPostRatingAnswer] = useState()
 
     useEffect(() => {
+        setRatingInput('')
+        setPostRatingAnswer('')
         const data = { pinId }
-        const comments = getRatings(data).then(data => setPinRatings(data.data))
+        const ratings = getRatings(data).then(data => setPinRatings(data.data))
     }, [pinId])
 
     async function handleRatingChange(event) {
